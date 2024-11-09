@@ -1,0 +1,198 @@
+.modaluser {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: #757575; 
+    overflow-y: hidden;
+  }
+  
+  .modal-content {
+    background-color: rgb(255, 255, 255);
+    border: solid 3px #800000;
+    padding: 50px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0px 2px 4px rgba(100,100,100,0.5);
+    overflow-y: hidden;
+  }
+
+  .titlengevent{
+    color: #800000;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+
+  .userbutton{
+color: #800000;
+left: 58.5%;
+top: 48%;
+position: absolute;
+margin-top: -100px;
+font-size: 20px;
+background-color: white;
+border: none;
+width: 30px;
+border-radius: 8px;
+  }
+
+.userbutton:hover{
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+  .next-buttonuser, .back-buttonuser {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    top: 50%;
+    z-index: 10;
+    border-radius: 50px;
+  }
+  .next-buttonuser{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7' /%3E%3C/svg%3E");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .back-buttonuser{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 19l-7-7 7-7' /%3E%3C/svg%3E");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .next-buttonuser{
+    position: absolute;
+    right: -55px;
+    z-index: 100;
+  }
+  .back-buttonuser{
+    position: absolute;
+    left: -55px;
+    z-index: 100;
+  }
+
+  
+  .eventsbutton {
+    background-color: white;
+    border: solid #800000;
+    padding: 8px 20px;
+    color: #800000;
+    cursor: pointer;
+    border-radius: 9px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .holidaybutton {
+    background-color: white;
+    border: solid goldenrod;
+    padding: 8px 20px;
+    color: goldenrod;
+    cursor: pointer;
+    border-radius: 9px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+
+  
+  .saveevent {
+    background-color: white;
+    color: #800000;
+    border: solid #800000;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 8px 8px;
+  }
+  
+  .deleteevent{
+    background-color: white;
+    color: #800000;
+    border: solid #800000;
+    border-radius: 10px;
+    padding: 8px 8px;
+    margin-left: 30px;
+    margin-right: 40px;
+  }
+  
+  .cancel{
+  background-color: white;
+    color: #800000;
+    border: solid #800000;
+    border-radius: 10px;
+    padding: 8px 10px;
+  }
+  
+  .deleteevent:hover {
+    background-color: lightgray;
+  }
+  
+  
+  #calendar-title{
+    position: absolute; 
+    top: -100px;
+    left: 37%;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #ffffff;
+  } 
+  
+
+  
+ 
+  
+  .confirm-delete:hover, .cancel-delete:hover{
+    background-color: lightgrey;
+    
+  }
+  .cancel{
+    background-color: white;
+    color: #800000;
+    border: none;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    position: fixed;
+    right: 580px;
+    top: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .cancel:hover{
+    background-color: lightgray;
+  }
+  .full-calendar-containeruser{
+    position: absolute;
+    height: 900px;
+    width: 85%;
+    top: 120px;
+    left: 7.5%;
+    background-color: rgb(222, 222, 248); 
+    /* eto po yung kulay nung today */
+  }
+  .fc-day{
+    background-color: #ffffff;
+    /* color po ng buong day kasama week title */
+    color: rgb(119, 119, 119);
+  }
+  .fc-daygrid-day{
+    color: #3b3b3b;
+    /* color ng kada day  */
+  }
+  .fc-daygrid-event{
+    background-color: #f3f3f3;
+    color: rgb(70, 70, 70);
+    border-radius: 30px;
+  }
+  

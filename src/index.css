@@ -1,0 +1,10 @@
+.fc-daygrid-event-dot{
+    position: absolute;
+    height: 28px;
+    width: 160px;
+    left: 0px;
+    border-radius: 10px;
+  }
+  .fc-daygrid-event{
+    background-color: inherit;
+  }

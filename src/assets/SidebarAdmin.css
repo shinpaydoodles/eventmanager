@@ -1,0 +1,417 @@
+
+@import "https://cssicon.space/css/icons.css";
+
+
+.icon {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 35px;
+  left: 230px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.icon:before, .icon:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: #ffffff;
+  transition: all 0.4s ease;
+}
+
+.icon.menu:before {
+  top: 8px;
+}
+
+.icon.menu:after {
+  top: 16px;
+}
+
+.icon.close:before {
+  transform: rotate(45deg);
+  top: 12px;
+}
+
+.icon.close:after {
+  transform: rotate(-45deg);
+  top: 12px;
+}
+  
+  .icon:before {
+    content: '';
+    top: 10px;
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    color: #ffffff;
+    transition: all 0.4s ease;
+  }
+  
+  .icon:after {
+    content: '';
+    top: 10px;
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    transition: all 0.4s ease;
+    color: #ffffff;
+  }
+  
+  
+  .icon.menu:before, .icon.menu:after {
+    transform: rotate(0);  
+    color: #ffffff;
+    height: 3px;
+
+  } 
+  
+  
+  .icon.close:before {
+    transform: rotate(45deg);  
+    top: 0;  
+    height: 3px;
+    left: 0px;
+  }
+  
+  .icon.close:after {
+    transform: rotate(-45deg);  
+    top: 0; 
+    height: 3px;
+    left: 0px; 
+  }
+  
+
+  .icon.close {
+    background-color: transparent;
+
+    top: 45px;
+    position: fixed;
+
+  }
+  
+
+  .icon, .icon:before, .icon:after {
+    transition: transform 0.4s ease, top 0.4s ease;
+    top: 35px;
+    color: #ffffff;
+  }
+  
+
+  .sidebar.open {
+    transform: translate(0);
+    color: #ffffff;
+  }
+  
+  .close-btn {
+    background-color: #ffffff;
+    z-index: 100;
+    position: fixed;
+    top: 7vh; 
+    left: 30vh; 
+  }
+  
+
+  .icon {
+    height: 10px;
+    width: 30px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+  
+.icon.menu{
+    color: #ffffff;
+    height: 3px;
+    left: 2.6954177897574123vh;
+}
+
+
+
+.sidebar-title {
+    background-color: #800000;
+    height: 100%;
+    width: 100%; 
+    color: white; 
+    position: absolute;
+}
+
+
+.sidebar-body{
+    background-color: #ffffff;
+    height: 100%;
+    margin-bottom: 1000px;
+}
+.li{
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+  
+  .sidebar-toggle-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    position: absolute;
+    height: 15px;
+    left: 230px;
+  }
+  
+  .sidebar.active {
+    position: fixed;
+    width: 35vh;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #ffffff;
+    color: white;
+    transition: 1.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+  
+  .close-btn {
+    border: none;
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 100;
+    background-color: #800000;
+    top: 35px;
+  }
+  .sbt{
+    background-color: #800000;
+    height: 94px;
+    position: fixed;
+    width: 35vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+  .sidebar-link{
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+  }
+  .sidebar-link a{
+    text-decoration: none;
+  }
+  .dashboard{
+    height: 7vh;
+    width: 35vh;
+    position: fixed;
+    top: 110px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    
+}
+.homeadmin{
+    height: 6vh;
+    width: 35vh;
+    position: fixed;
+    top: 180px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    
+}
+
+.calendaradmin{
+    height: 6vh;
+    width: 35vh;
+    position: fixed;
+    top: 230px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+}
+.events{
+    height: 5vh;
+    width: 35vh;
+    position: fixed;
+    top: 310px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+}
+.holidays{
+    height: 5vh;
+    width: 35vh;
+    position: fixed;
+    top: 360px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+}
+.monthlogo {
+
+  background-image: url("https://lcdn-hk.icons8.com/c/4cM6VWRuW0mT2pL_fhH_6g/7d0313e230c6b9f5c9064f99ef41564e5971c58a.png"); 
+  background-size: cover; 
+  background-position: center; 
+  z-index: 999; 
+}
+.eventyellow{
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: goldenrod;
+}
+.holidayred{
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #800000;
+}
+.logoutadmin{
+    height: 5vh;
+    width: 35vh;
+    position: fixed;
+    top: 540px;
+    left: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+}
+.visitadmin{
+    height: 5vh;
+    width: 35vh;
+    position: fixed;
+    top: 600px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #800000;
+}
+#visit-hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffefe; 
+  color: rgb(87, 87, 87); 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+#sidebar-hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffefe; 
+  color: rgb(87, 87, 87); 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+#sidebar-hover:hover {
+    background-color: #800000; 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+  }
+  .divideradmin{
+    height: 5px;
+    width: 35vh;
+    position: fixed;
+    top: 170px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #800000;
+
+  }
+  .divider2admin{
+    height: 5px;
+    width: 35vh;
+    position: fixed;
+    top: 280px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #800000;
+    z-index: 999;
+  }
+  .iconbgadmin {
+    position: fixed;
+    left: 15px;
+    margin-top: 290px;
+  }
+  
+  .iconbg img {
+    width: 100%;
+  }
+  .divider3admin{
+    height: 5px;
+    width: 35vh;
+    position: fixed;
+    top: 520px;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #800000;
+  }
+  .profile {
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+  }
+  
+  .profile-image {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    margin-right: 10px;
+    margin-top: 10px; 
+  }
+  
+  .profile-name, .profile-email {
+    margin: -20px 0; 
+    font-size: 16px; 
+    color: #fff; 
+  }
+  .profile-name{
+    position: fixed;
+    margin-left: 70px;
+    margin-top: -50px;
+  }
+  .profile-email {
+    font-size: 14px; 
+    opacity: 0.8; 
+    margin-left: 70px;
+  }
+  .hidden-sidebar {
+    display: none; 
+  }
+  
+  .hidden-sidebar-active {
+    visibility: hidden;
+    position: absolute;
+    left: -9999px; 
+  }
+  .sidebar-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .fblogo {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .portallogo {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+  }
