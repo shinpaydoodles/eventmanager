@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'https://your-frontend-domain.com' }));
+app.use(cors({ origin: 'https://ciceventmanager.netlify.app/' }));
 app.use(express.json());
 
 console.log('MongoDB URI:', process.env.MONGO_URI); // Temporary log for verification
