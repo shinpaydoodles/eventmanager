@@ -8,11 +8,11 @@ dotenv.config();
 const app = express();
 const cors = require('cors');
 app.use(cors({
-    origin: 'https://ciceventmanager.netlify.app',
+  origin: ['https://ciceventmanager.netlify.app', 'http://localhost:3000'],
 }));
 app.use(express.json());
 
-console.log('MongoDB URI:', process.env.MONGO_URI); // Temporary log for verification
+console.log('MongoDB URI:', process.env.MONGO_URI); 
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB Atlas'))
@@ -36,19 +36,18 @@ const Event = mongoose.model('Event', eventSchema);
 
 app.post('/api/events', async (req, res) => {
   const { title, where, start, end, attire, description, color } = req.body;
-
   console.log('Received event data:', req.body);  
-
   
   const newEvent = new Event({ title, where, start, end, attire, description, color });
   try {
     const savedEvent = await newEvent.save();
-    res.json(savedEvent);
+    res.json(savedEvent);  
   } catch (err) {
     console.error('Error saving event:', err);  
     res.status(500).json({ error: 'Failed to save event: ' + err.message });
   }
 });
+
 
 app.get('/api/events', async (req, res) => {
   try {
