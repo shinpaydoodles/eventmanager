@@ -21,7 +21,7 @@ const Calendaruser = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const calendarRef = useRef(null);
 
-  axios.defaults.baseURL = 'http://localhost:5000';
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app/';
 
   useEffect(() => {
     fetchEvents();

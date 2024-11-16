@@ -1,3 +1,30 @@
-.fc{
-    margin-bottom: 100px;
+.header {
+    background-color: #800000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12.7vh;
+    width: 100%;
+    box-shadow: 0px 2px 4px rgba(100, 100, 100, 0.5);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 635px) {
+    .header {
+        height: 10vh; /* Adjust height for smaller screens */
+        padding: 0 10px; /* Reduce padding */
+        font-size: 14px; /* Smaller font size */
+    }
+}
+
+@media (max-width: 320px) {
+    .header {
+        height: 8vh; /* Further adjustment for very small screens */
+        font-size: 12px; /* Smaller text for better fit */
+        padding: 0 5px; /* Minimal padding */
+    }
 }
