@@ -14,7 +14,7 @@ const SidebarUser = ({ changeView }) => {
 
   const handleLogout = () => {
 
-    navigate("/eventmanager");
+    navigate("/");
   };
 
   const userName = 'Hanyzel V. Cenon';  
