@@ -6,7 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const cors = require('cors');
 app.use(cors({
   origin: ['https://ciceventmanager.netlify.app', 'http://localhost:5000'],
 }));
