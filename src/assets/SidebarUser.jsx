@@ -38,13 +38,13 @@ const SidebarUser = ({ changeView }) => {
             <p className='profile-email'>{userEmail}</p>
           </div> 
           <ul className='sidebar-link'>
-            <Link to="/home"><li className='homeuser' id='sidebar-hover'>
+            <Link to="home"><li className='homeuser' id='sidebar-hover'>
               <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" className='sidebar-icon' />Home
             </li></Link>
-            <Link to="/calendaruser"><li className='weekliuser' id='sidebar-hover'>
+            <Link to="calendaruser"><li className='weekliuser' id='sidebar-hover'>
               <img src="https://w7.pngwing.com/pngs/162/843/png-transparent-computer-icons-calendar-date-others-miscellaneous-text-calendar-thumbnail.png" alt="Calendar" className='sidebar-icon' />  Month
             </li></Link>
-            <Link to="/week"><li className='monthliuser' id='sidebar-hover'>
+            <Link to="week"><li className='monthliuser' id='sidebar-hover'>
               <img src="https://w7.pngwing.com/pngs/162/843/png-transparent-computer-icons-calendar-date-others-miscellaneous-text-calendar-thumbnail.png" alt="Week" className='sidebar-icon' />  Week
             </li></Link>
             <li className='divideruser'></li>
