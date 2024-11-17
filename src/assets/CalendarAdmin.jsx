@@ -28,7 +28,22 @@ const CalendarAdmin = () => {
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app' , 'http://localhost:5000';
 
   useEffect(() => {
-    fetchEvents();
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/events"); 
+        if (!response.ok) {
+          throw new Error("Failed to fetch events");
+        }
+        const data = await response.json();
+        setEvents(data); 
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchEvents(); 
   }, []);
 
   const handleDeleteEvent = async () => {
