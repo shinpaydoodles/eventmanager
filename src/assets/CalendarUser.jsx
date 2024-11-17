@@ -24,7 +24,9 @@ const Calendaruser = () => {
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app/';
 
   useEffect(() => {
-    fetchEvents();
+    axios.get('https://eventmanager-omt8.onrender.com')
+      .then(response => setEvents(response.data))
+      .catch(err => console.error('Error fetching events:', err));
   }, []);
 
   const fetchEvents = async () => {
