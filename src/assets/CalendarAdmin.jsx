@@ -28,24 +28,11 @@ const CalendarAdmin = () => {
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app' , 'http://localhost:5000';
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/events"); 
-        if (!response.ok) {
-          throw new Error("Failed to fetch events");
-        }
-        const data = await response.json();
-        setEvents(data); 
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setLoading(false); 
-      }
-    };
-
-    fetchEvents(); 
+    axios.get('https://eventmanager-omt8.onrender.com')
+      .then(response => setEvents(response.data))
+      .catch(err => console.error('Error fetching events:', err));
   }, []);
-
+  
   const handleDeleteEvent = async () => {
     if (selectedEvent) {
       try {
