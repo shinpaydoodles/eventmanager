@@ -64,8 +64,12 @@ const CalendarAdmin = () => {
   };
   const fetchEvents = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/events`);
-      setEvents(response.data);
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/events`);
+      if (Array.isArray(response.data)) {
+        setEvents(response.data);
+      } else {
+        console.error('Events data is not an array', response.data);
+      }
     } catch (error) {
       console.error('Error fetching events:', error);
     }
