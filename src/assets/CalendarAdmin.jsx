@@ -29,6 +29,7 @@ const CalendarAdmin = () => {
 
   useEffect(() => {
     fetchEvents();
+    console.log(response.data);
   }, []);
 
   const handleDeleteEvent = async () => {
@@ -65,6 +66,7 @@ const CalendarAdmin = () => {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/events`);
+      console.log(response.data); // Check the response format
       if (Array.isArray(response.data)) {
         setEvents(response.data);
       } else {
