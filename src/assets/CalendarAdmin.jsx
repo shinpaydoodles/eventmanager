@@ -25,13 +25,13 @@ const CalendarAdmin = () => {
   const [selectedType, setSelectedType] = useState('');
   const calendarRef = useRef();
 
-  axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app' , 'http://localhost:5000';
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app' || 'http://localhost:5000';
 
   useEffect(() => {
-    axios.get('https://eventmanager-omt8.onrender.com')
-      .then(response => setEvents(response.data))
-      .catch(err => console.error('Error fetching events:', err));
-  }, []);
+    axios.get('/api/events')
+    .then(response => setEvents(response.data))
+    .catch(err => console.error('Error fetching events:', err));
+}, []);
   
   const handleDeleteEvent = async () => {
     if (selectedEvent) {
