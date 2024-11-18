@@ -29,8 +29,21 @@ const CalendarAdmin = () => {
 
   useEffect(() => {
     fetchEvents();
-    console.log(response.data);
   }, []);
+  
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/events`);
+      console.log(response.data); // Check the response format
+      if (Array.isArray(response.data)) {
+        setEvents(response.data);
+      } else {
+        console.error('Events data is not an array', response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  };
 
   const handleDeleteEvent = async () => {
     if (selectedEvent) {
@@ -63,19 +76,7 @@ const CalendarAdmin = () => {
       console.error("Error updating event:", error);
     }
   };
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/events`);
-      console.log(response.data); // Check the response format
-      if (Array.isArray(response.data)) {
-        setEvents(response.data);
-      } else {
-        console.error('Events data is not an array', response.data);
-      }
-    } catch (error) {
-      console.error('Error fetching events:', error);
-    }
-  };
+
 
   const handleDateClick = (info) => {
     setSelectedDate(info.dateStr);
