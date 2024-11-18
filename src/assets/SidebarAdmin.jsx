@@ -37,11 +37,11 @@ const SidebarAdmin = () => {
             <p className='profile-email'>{userEmail}</p>
           </div> 
           <ul className='sidebar-link'>
-            <Link to="/dashboard"><li className='dashboard' id='sidebar-hover'>
+            <Link to="dashboard"><li className='dashboard' id='sidebar-hover'>
               <img src="https://toppng.com/uploads/thumbnail/dashboard-svg-icon-free-dashboard-icon-11553444664xujck0vrug.png" alt="Dashboard" className='sidebar-icon' />Dashboard</li></Link>
             <Link to="home"><li className='homeadmin' id='sidebar-hover'>
               <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" className='sidebar-icon' />Home</li></Link>
-            <Link to="/calendaradmin"><li className='calendaradmin' id='sidebar-hover'>
+            <Link to="calendaradmin"><li className='calendaradmin' id='sidebar-hover'>
               <img src="https://w7.pngwing.com/pngs/162/843/png-transparent-computer-icons-calendar-date-others-miscellaneous-text-calendar-thumbnail.png" alt="Calendar" className='sidebar-icon' />Calendar</li></Link>
             <li className='divideradmin'></li>
 
