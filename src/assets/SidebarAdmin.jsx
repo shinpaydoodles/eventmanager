@@ -13,7 +13,7 @@ const SidebarAdmin = () => {
   };
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/eventmanager");
   };
 
   const userName = 'Luis Miguel Benico';  

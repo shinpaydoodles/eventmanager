@@ -25,7 +25,7 @@ const CalendarAdmin = () => {
   const [selectedType, setSelectedType] = useState('');
   const calendarRef = useRef();
 
-  axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app' , 'http://localhost:5000';
+  axios.defaults.baseURL = 'http://localhost:5000';
 
   useEffect(() => {
     fetchEvents();
@@ -106,20 +106,11 @@ const CalendarAdmin = () => {
   const handleEventClick = (info) => {
     const clickedEvent = events.find(event => event._id === info.event.id);
     if (clickedEvent) {
-        setSelectedEvent(clickedEvent);
-        setNewEvent({
-            title: clickedEvent.title,
-            where: clickedEvent.where,
-            start: new Date(clickedEvent.start).toISOString().slice(11, 16), // Format as HH:MM
-            end: clickedEvent.end ? new Date(clickedEvent.end).toISOString().slice(11, 16) : '',
-            attire: clickedEvent.attire,
-            description: clickedEvent.description,
-            color: clickedEvent.color,
-        });
-        setSelectedDate(new Date(clickedEvent.start).toISOString().split('T')[0]); // Format as YYYY-MM-DD
-        setShowModal(true);
+      setSelectedEvent(clickedEvent);
+      setNewEvent(clickedEvent);
+      setShowModal(true);
     }
-};
+  };
 
   const handleEventButtonClick = () => {
     setSelectedType('event');
