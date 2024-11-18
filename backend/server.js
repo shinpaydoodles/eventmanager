@@ -37,9 +37,14 @@ const eventSchema = new mongoose.Schema({
 
 const Event = mongoose.model('Event', eventSchema);
 
-// Basic root route for testing
-app.get('/', (req, res) => {
-  res.send('Event Manager API is running');
+app.get('/api/events', async (req, res) => {
+  try {
+    const events = await Event.find();
+    res.json(events);
+  } catch (err) {
+    console.error('Error fetching events:', err); // For debugging
+    res.status(500).json({ error: 'Failed to fetch events: ' + err.message });
+  }
 });
 
 // Route to create a new event
