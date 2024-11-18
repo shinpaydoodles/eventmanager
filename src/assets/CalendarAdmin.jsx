@@ -25,7 +25,7 @@ const CalendarAdmin = () => {
   const [selectedType, setSelectedType] = useState('');
   const calendarRef = useRef();
 
-  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     fetchEvents();
