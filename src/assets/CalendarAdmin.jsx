@@ -25,7 +25,7 @@ const CalendarAdmin = () => {
   const [selectedType, setSelectedType] = useState('');
   const calendarRef = useRef();
 
-  axios.defaults.baseURL = 'http://localhost:5000','https://ciceventmanager.netlify.app';
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
   useEffect(() => {
     fetchEvents();
@@ -64,7 +64,7 @@ const CalendarAdmin = () => {
   };
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('/api/events');
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/events`);
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);
