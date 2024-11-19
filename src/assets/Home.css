@@ -1,43 +1,36 @@
 .events-container {
-  padding: 100px;
-  height: 500px;
-  width: 900px;
-  margin-top: 10%;
-  margin-left: 20%;
-  border-radius: 8px;
+  padding: 20px;
+  height: auto; 
+  width: 90%; 
+  margin-top: 50%; 
+  margin-left: 4%; 
+  border-radius: 5px;
   background-color: #adadadac;
-  position: absolute;
+  position:absolute;
   overflow-y: auto;
-  display:list-item;
-  justify-content: center;
-  align-items: center;
-  
 }
-.event-title{
+
+.event-title {
   color: #ffffff;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;
+  font-size: 24px; 
   text-align: center;
-  margin-bottom: 20px;
-  margin-top: -80px;
- 
+  margin-bottom: 15px;
+  margin-top: 0; 
 }
+
 .event-item {
-  margin-bottom: 20px;
+  margin-bottom: 15px; 
   padding: 10px;
-  border: solid 2px #800000;
+  border: solid 1px #800000; 
   border-radius: 5px;
   background-color: #fffefe;
   color: #800000;
-  width: 600px;
-  margin-left: 50px;
-  
-
- 
+  width: 100%; 
+  margin-left: 0; 
 }
 
-.events-list p{
+.events-list p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: x-large;
+  font-size: 16px; 
 }
-
