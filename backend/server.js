@@ -9,7 +9,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: ['https://ciceventmanager.netlify.app', 'http://localhost:5000'],
+  origin: ['https://ciceventmanager.netlify.app', 'http://localhost:5000', 'http://localhost:5173'],
 }));
 
 app.use(express.json()); // Middleware to parse JSON bodies

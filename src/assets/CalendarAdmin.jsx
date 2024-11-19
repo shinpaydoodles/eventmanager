@@ -26,14 +26,10 @@ const CalendarAdmin = () => {
   const calendarRef = useRef();
 
   axios.defaults.baseURL = "http://localhost:5000";
-
-  useEffect(() => {
-    fetchEvents();
-  }, []);
   
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/admin/${adminId}/events`);
+      const response = await axios.get(`/api/events`);
       console.log(response.data); // Check the response format
       if (Array.isArray(response.data)) {
         setEvents(response.data);
@@ -154,6 +150,25 @@ const CalendarAdmin = () => {
     const title = currentView.title; 
     document.getElementById('calendar-title').innerText = title; 
   };
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("https://eventmanager-omt8.onrender.com/api/events"); 
+        if (!response.ok) {
+          throw new Error("Failed to fetch events");
+        }
+        const data = await response.json();
+        setEvents(data); 
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchEvents(); 
+  }, []); 
 
   return (
     <div className='full-calendar-containeradmin'>
