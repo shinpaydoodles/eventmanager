@@ -23,23 +23,7 @@ const Calendaruser = () => {
 
   axios.defaults.baseURL = "http://localhost:5000";
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("https://eventmanager-omt8.onrender.com/api/events"); 
-        if (!response.ok) {
-          throw new Error("Failed to fetch events");
-        }
-        const data = await response.json();
-        setEvents(data); 
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setLoading(false); 
-      }
-    };
-    fetchEvents(); 
-  }, []); 
+  
 
   const handleEventClick = (info) => {
     const event = info.event;
@@ -79,6 +63,23 @@ const Calendaruser = () => {
     setShowModal(false);
     setSelectedEvent(null);
   };
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("https://eventmanager-omt8.onrender.com/api/events"); 
+        if (!response.ok) {
+          throw new Error("Failed to fetch events");
+        }
+        const data = await response.json();
+        setEvents(data); 
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+    fetchEvents(); 
+  }, []); 
 
   return (
     <div className='full-calendar-containeruser'>
