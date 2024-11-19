@@ -21,22 +21,25 @@ const Calendaruser = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const calendarRef = useRef(null);
 
-  axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://ciceventmanager.netlify.app/';
+  axios.defaults.baseURL = "http://localhost:5000";
 
   useEffect(() => {
-    axios.get('https://eventmanager-omt8.onrender.com')
-      .then(response => setEvents(response.data))
-      .catch(err => console.error('Error fetching events:', err));
-  }, []);
-
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get('/api/events');
-      setEvents(response.data);
-    } catch (error) {
-      console.error('Error fetching events:', error);
-    }
-  };
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("https://eventmanager-omt8.onrender.com/api/events"); 
+        if (!response.ok) {
+          throw new Error("Failed to fetch events");
+        }
+        const data = await response.json();
+        setEvents(data); 
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+    fetchEvents(); 
+  }, []); 
 
   const handleEventClick = (info) => {
     const event = info.event;
