@@ -27,19 +27,7 @@ const CalendarAdmin = () => {
 
   axios.defaults.baseURL = "http://localhost:5000";
   
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get(`/api/events`);
-      console.log(response.data); // Check the response format
-      if (Array.isArray(response.data)) {
-        setEvents(response.data);
-      } else {
-        console.error('Events data is not an array', response.data);
-      }
-    } catch (error) {
-      console.error('Error fetching events:', error);
-    }
-  };
+
 
   const handleDeleteEvent = async () => {
     if (selectedEvent) {
