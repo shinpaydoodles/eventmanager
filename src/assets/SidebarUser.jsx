@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { Link, useNavigate } from 'react-router-dom';
 import { users, admins } from './User';
 import './SidebarUser.css'; 
@@ -10,29 +10,30 @@ const SidebarUser = ({ changeView }) => {
   const [userEmail, setUserEmail] = useState('');
   const navigate = useNavigate();
 
-  const loggedInEmail = localStorage.getItem('loggedInEmail'); // or from state if using Redux, Context API, etc.
+  const loggedInEmail = localStorage.getItem('loggedInEmail'); // Get logged-in email from localStorage
 
   useEffect(() => {
     // Check if the logged-in user is from the users or admins list
-    const user = users.find(user => user.email === loggedInEmail);
-    const admin = admins.find(admin => admin.email === loggedInEmail);
+    const currentUser = users.find(user => user.email === loggedInEmail);
+    const currentAdmin = admins.find(admin => admin.email === loggedInEmail);
 
-    if (user) {
-      setUserName(user.email.split('@')[0]);  // Extract username from email or use another field
-      setUserEmail(user.email);
-    } else if (admin) {
-      setUserName(admin.email.split('@')[0]);  // Extract username from email or use another field
-      setUserEmail(admin.email);
+    if (currentUser) {
+      setUserName(currentUser.userName); // Set username from users list
+      setUserEmail(currentUser.userEmail); // Set user email from users list
+    } else if (currentAdmin) {
+      setUserName(currentAdmin.userName); // Set username from admins list
+      setUserEmail(currentAdmin.userEmail); // Set admin email from admins list
     }
-  }, [loggedInEmail]);
+  }, [loggedInEmail]); // Dependency on loggedInEmail to run the effect when it changes
+
   const toggleSidebar = () => {
     setIsActive(!isActive);
     setIsMenuIcon(!isMenuIcon); 
   };
 
   const handleLogout = () => {
-
-    navigate("/");
+    localStorage.removeItem('loggedInEmail'); // Optional: Remove email from localStorage on logout
+    navigate("/"); // Navigate to login page or another page
   };
 
 
