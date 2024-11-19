@@ -25,23 +25,19 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
       (admin) => admin.email === formData.email && admin.password === formData.password
     );
 
-    if (user) {
+    if (formData.email === userCredentials.email && formData.password === userCredentials.password) {
       setIsAuthenticated(true);
       setIsAdmin(false);
       setModalMessage('User login successful!');
       setShowModal(true);
       setTimeout(() => navigate('/user'), 2000);
-    } else if (admin) {
+    } else if (formData.email === adminCredentials.email && formData.password === adminCredentials.password) {
       setIsAuthenticated(true);
       setIsAdmin(true);
       setModalMessage('Admin login successful!');
       setShowModal(true);
       setTimeout(() => navigate('/admin'), 2000);
-    } else {
-      setModalMessage('Login failed: Invalid credentials');
-      setShowModal(true);
     }
-  };
 
   const closeModal = () => {
     setShowModal(false);
