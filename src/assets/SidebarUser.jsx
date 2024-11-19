@@ -1,12 +1,30 @@
 import React, { useState } from 'react'; 
 import { Link, useNavigate } from 'react-router-dom';
+import { users, admins } from './User';
 import './SidebarUser.css'; 
 
 const SidebarUser = ({ changeView }) => { 
   const [isActive, setIsActive] = useState(false);
   const [isMenuIcon, setIsMenuIcon] = useState(true); 
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const navigate = useNavigate();
 
+  const loggedInEmail = localStorage.getItem('loggedInEmail'); // or from state if using Redux, Context API, etc.
+
+  useEffect(() => {
+    // Check if the logged-in user is from the users or admins list
+    const user = users.find(user => user.email === loggedInEmail);
+    const admin = admins.find(admin => admin.email === loggedInEmail);
+
+    if (user) {
+      setUserName(user.email.split('@')[0]);  // Extract username from email or use another field
+      setUserEmail(user.email);
+    } else if (admin) {
+      setUserName(admin.email.split('@')[0]);  // Extract username from email or use another field
+      setUserEmail(admin.email);
+    }
+  }, [loggedInEmail]);
   const toggleSidebar = () => {
     setIsActive(!isActive);
     setIsMenuIcon(!isMenuIcon); 
@@ -17,8 +35,7 @@ const SidebarUser = ({ changeView }) => {
     navigate("/");
   };
 
-  const userName = 'Hanyzel V. Cenon';  
-  const userEmail = '22410122@cic.edu.ph';  
+
 
   return (
     <div className='sidebar-container'>
