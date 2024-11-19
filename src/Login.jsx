@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import { users } from './assets/User';
+
 
 const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -17,8 +19,9 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const userCredentials = { email: 'luisbenico', password: '12345' };
-    const adminCredentials = { email: 'hanyzelcenon', password: 'qwerty' };
+    const user = users.find(
+      (user) => user.email === formData.email && user.password === formData.password
+    );
 
     if (formData.email === userCredentials.email && formData.password === userCredentials.password) {
       setIsAuthenticated(true);
