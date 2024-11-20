@@ -212,7 +212,7 @@ const CalendarAdmin = () => {
                   className='wheremodal'
                   value={newEvent.where}
                   onChange={(e) => setNewEvent({ ...newEvent, where: e.target.value })}
-                  required
+                  
                 />
               </label>
               <label>
@@ -222,7 +222,7 @@ const CalendarAdmin = () => {
                   className="starttimemodal"
                   value={newEvent.start}
                   onChange={(e) => setNewEvent({ ...newEvent, start: e.target.value })}
-                  required
+                  
                 />
               </label>
               <label>
@@ -232,7 +232,7 @@ const CalendarAdmin = () => {
                   className="endtimemodal"
                   value={newEvent.end}
                   onChange={(e) => setNewEvent({ ...newEvent, end: e.target.value })}
-                  required
+                  
                 />
               </label>
               <label>
@@ -242,7 +242,7 @@ const CalendarAdmin = () => {
                   className='attiremodal'
                   value={newEvent.attire}
                   onChange={(e) => setNewEvent({ ...newEvent, attire: e.target.value })}
-                  required
+                  
                 />
               </label>
               <label>

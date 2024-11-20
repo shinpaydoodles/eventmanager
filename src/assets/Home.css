@@ -1,36 +1,85 @@
+
 .events-container {
   padding: 20px;
-  height: auto; 
-  width: 90%; 
-  margin-top: 50%; 
-  margin-left: 4%; 
+  height: auto;
+  width: 45%;
+  margin-top: 7%;
+  margin-left: 26.5%;
   border-radius: 5px;
-  background-color: #adadadac;
-  position:absolute;
+  background-color: #9e252585;
+  position: absolute;
   overflow-y: auto;
+ 
 }
 
 .event-title {
   color: #ffffff;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 24px; 
+  font-size: 30px;
   text-align: center;
   margin-bottom: 15px;
-  margin-top: 0; 
+  margin-top: 0;
+  
 }
 
 .event-item {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   padding: 10px;
-  border: solid 1px #800000; 
+  border: solid 1px #800000;
   border-radius: 5px;
   background-color: #fffefe;
   color: #800000;
-  width: 100%; 
-  margin-left: 0; 
+  width: 100%;
+  margin-left: 0;
 }
 
 .events-list p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 16px; 
+  font-size: 20px;
+}
+
+/* for mobile view */
+@media (max-width: 768px) {
+  .events-container {
+    width: 90%; 
+    margin-left: 5%; 
+    margin-top: 5%; 
+    padding: 15px; 
+  }
+
+  .event-title {
+    font-size: 24px; 
+  }
+
+  .event-item {
+    padding: 8px;
+    font-size: 14px; 
+  }
+
+  .events-list p {
+    font-size: 16px; 
+  }
+}
+
+@media (max-width: 450px) {
+  .events-container {
+    width: 95%; 
+    margin-left: .5%; 
+    margin-top: 19%;
+    padding: 10px; 
+  }
+
+  .event-title {
+    font-size: 24px;
+    margin-top: 3%; 
+  }
+
+  .event-item {
+    padding: 5px; 
+    font-size: 18px; 
+  }
+
+  .events-list p {
+    font-size: 14.5px; 
+  }
 }

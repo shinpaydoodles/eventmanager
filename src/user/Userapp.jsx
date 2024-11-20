@@ -12,9 +12,9 @@ const UserApp = () => {
       <SidebarUser />
       <div className="app-container">
         <main className="content">
-          <Home />
+          
           <Routes>
-            
+            <Route path="/home" element={<Home/>}/>
             <Route path="/calendaruser" element={<Calendaruser />} />
             <Route path="/week" element={<WeekView />} />
           </Routes>
