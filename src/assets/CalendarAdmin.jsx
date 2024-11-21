@@ -25,10 +25,8 @@ const CalendarAdmin = () => {
   const [selectedType, setSelectedType] = useState('');
   const calendarRef = useRef();
 
-  axios.defaults.baseURL = "http://localhost:5000";
+  axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
   
-
-
   const handleDeleteEvent = async () => {
     if (selectedEvent) {
       try {

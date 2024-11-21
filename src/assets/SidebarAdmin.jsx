@@ -21,8 +21,9 @@ const SidebarAdmin = () => {
 
   return (
     <div className='sidebar-container'>
+      <div className='sidebarbuttonnn'onClick={toggleSidebar}>
       <div className={`icon ${isMenuIcon ? 'menu' : 'close'}`} onClick={toggleSidebar}></div>
-
+      </div>
       {isActive && ( 
         <nav className={`sidebar active`}>
           <div className='sbt'>

@@ -75,12 +75,13 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
       </div>
 
       {showModal && (
-        <div className="modallogin">
-          <div className="modal-content-login">
-            <span className="closelogin" onClick={closeModal}>&times;</span>
-            <p className="modal-content-loginto">{modalMessage}</p>
-          </div>
-        </div>
+        <div className={`modallogin ${showModal ? 'show' : ''}`}>
+  <div className="modal-content-login">
+    <span className="closelogin" onClick={closeModal}>&times;</span>
+    <p className="modal-content-loginto">{modalMessage}</p>
+  </div>
+</div>
+
       )}
     </div>
   );

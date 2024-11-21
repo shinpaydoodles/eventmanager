@@ -13,9 +13,10 @@ const AdminApp = () => {
       <div className="app-container">
         <main className="content">
           <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/home" element={<Home />} /> 
             <Route path="/calendaradmin" element={<CalendarAdmin/>}/>
-            <Route path="/dashboard" element={<Dashboard />} />
+            
           </Routes>
         </main>
       </div>

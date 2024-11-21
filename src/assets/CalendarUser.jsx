@@ -21,8 +21,7 @@ const Calendaruser = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const calendarRef = useRef(null);
 
-  axios.defaults.baseURL = "http://localhost:5000";
-
+  axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
   
 
   const handleEventClick = (info) => {

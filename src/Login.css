@@ -159,19 +159,36 @@ form.sign-up-form {
     border: solid 2px #800000;
     border-radius: 8px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%; /* Initial center position vertically */
+    left: 50%; /* Initial center position horizontally */
+    transform: translate(-50%, -150%); /* Start off-screen by translating vertically */
     box-shadow: 7px 7px rgba(0, 0, 0, 0.381);
     z-index: 1000;
     text-align: center;
     padding: 20px;
+    opacity: 0; /* Initially invisible */
+    visibility: hidden; /* Prevent interaction initially */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.5s ease-in-out; /* Smooth slide and fade */
 }
 
-.modal-content-loginto {
-    color: darkgray;
-    margin-top: 10px;
+/* When modal is visible */
+.modallogin.show {
+    transform: translate(-50%, -50%); /* Slide into the center */
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Allow interaction */
 }
+
+/* Close Button */
+.closelogin {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #800000;
+}
+
 
 .closelogin {
     position: absolute;
@@ -181,6 +198,7 @@ form.sign-up-form {
     font-size: 24px;
     color: #800000;
 }
+
 
 /* Mobile Responsive */
 @media (max-width: 779px) {
