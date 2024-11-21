@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import { users, admins } from './assets/User'; // Import users and admins
+import { users, admins } from './assets/User'; 
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye';
 
 const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // For toggling password visibility
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; 
     setFormData({ ...formData, [name]: value });
   };
 
@@ -43,12 +47,16 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); // Toggle password visibility
+  };
+
   const closeModal = () => {
     setShowModal(false);
   };
 
   return (
-    <div className="container">
+    <div className="container">    
       <div className="signin-form">
         <h2 className="title">Login</h2>
         <form onSubmit={handleLogin}>
@@ -61,14 +69,21 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="input-field">
+          <div className="input-field password-field">
             <i className="fas fa-lock"></i>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               name="password"
               placeholder="Password"
               onChange={handleInputChange}
+              autoComplete="current-password"
             />
+            <span
+              className="password-toggle"
+              onClick={togglePasswordVisibility}
+            >
+              <Icon icon={showPassword ? eye : eyeOff} size={20} />
+            </span>
           </div>
           <input type="submit" className="btn" value="Login" />
         </form>
@@ -76,12 +91,13 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
 
       {showModal && (
         <div className={`modallogin ${showModal ? 'show' : ''}`}>
-  <div className="modal-content-login">
-    <span className="closelogin" onClick={closeModal}>&times;</span>
-    <p className="modal-content-loginto">{modalMessage}</p>
-  </div>
-</div>
-
+          <div className="modal-content-login">
+            <span className="closelogin" onClick={closeModal}>
+              &times;
+            </span>
+            <p className="modal-content-loginto">{modalMessage}</p>
+          </div>
+        </div>
       )}
     </div>
   );

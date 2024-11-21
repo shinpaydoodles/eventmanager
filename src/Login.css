@@ -12,9 +12,11 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    max-width: 80%;
     background-image: url("https://lcdn-hk.icons8.com/c/4cM6VWRuW0mT2pL_fhH_6g/66630eb033bb926b98e2afeb164b8578bb8e7d13.png");
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Container */
@@ -29,8 +31,9 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    right: 20%;
+    left: 15%;
 }
+
 
 /* Forms */
 .signin-signup {
@@ -128,13 +131,45 @@ form.sign-up-form {
     margin-top: 10%;
     text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    position: relative; /* For the pulse effect */
+    overflow: hidden;
 }
 
 .btn:hover {
     background: white;
     color: #800000;
     border: 2px solid #800000;
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 15px rgba(128, 0, 0, 0.2); /* Add shadow */
 }
+
+.btn:active {
+    transform: scale(0.95); /* Slight shrink effect when clicked */
+    box-shadow: 0 4px 10px rgba(128, 0, 0, 0.3); /* Reduced shadow */
+}
+
+/* Glow pulse effect */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.btn:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+}
+
 
 /* Responsive Panels */
 .panels-container {
@@ -198,7 +233,22 @@ form.sign-up-form {
     font-size: 24px;
     color: #800000;
 }
-
+.show-password-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #800000;
+    margin-left: 8px;
+  }
+  .show-password-btn:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+  }
+  .password-toggle{
+    position: relative;
+    right: 5%;
+  }
 
 /* Mobile Responsive */
 @media (max-width: 779px) {
@@ -241,5 +291,30 @@ form.sign-up-form {
         width: 100px;
         height: 35px;
         font-size: 12px;
+    }
+}
+/* Password Toggle for Mobile */
+@media (max-width: 779px) {
+    .password-toggle {
+        right: 23%; /* Adjust positioning for smaller screens */
+    }
+
+    .show-password-btn {
+        font-size: 12px; /* Smaller font size for mobile */
+        margin-left: 5px; /* Adjust spacing for compact layout */
+    }
+
+    .show-password-btn:hover {
+        background-color: #f0f0f0; /* Slightly lighter hover effect */
+        border-radius: 5px; /* Smaller border radius for mobile */
+    }
+
+    .input-field {
+        height: 40px; /* Adjust height for smaller screens */
+        flex-direction: row; /* Ensure proper alignment for icon and toggle */
+    }
+
+    .input-field input {
+        font-size: 14px; /* Resize input text */
     }
 }
