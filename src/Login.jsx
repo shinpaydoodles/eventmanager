@@ -58,9 +58,7 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   return (
     <div className="container">    
       <div className="signin-form">
-        <div className='titlebackground'>
         <h2 className="title">Welcome</h2>
-        </div>
         <form onSubmit={handleLogin}>
           <div className="input-field">
             <i className="fas fa-user"></i>
