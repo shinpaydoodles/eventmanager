@@ -275,8 +275,8 @@ const CalendarAdmin = () => {
       )}
 
       {saveConfirmModal && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modaldeleted">
+          <div className="modal-contentdeleted">
             <h2 className='headngconfirmmodal'>Event saved successfully!</h2>
             <button onClick={() => setSaveConfirmModal(false)} className='close-confirm'>X</button>
           </div>

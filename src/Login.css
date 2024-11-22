@@ -19,21 +19,53 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Container */
 .container {
     position: relative;
     width: 140%;
     max-width: 1200px;
     height: 52vh;
     background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    left: 15%;
+    left: 35%;
+    border: 5px solid transparent; /* Initially transparent border */
+    background-clip: padding-box; /* Ensures the border animation doesn't cover content */
+    animation: gradient-border 3s infinite linear; /* Apply animation */
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: -5px; 
+    left: -5px; 
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px; /* Curved border */
+    background: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525); /* Gradient color */
+    z-index: -1;
+    animation: gradient-border 3s infinite linear; /* Apply animation */
 }
 
+/* Keyframe for border animation with gradient effect */
+@keyframes gradient-border {
+    0% {
+        border-image: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525); /* Initial gradient */
+        border-image-slice: 1;
+        border-radius: 25px;
+    }
+    50% {
+        border-image: linear-gradient(45deg, #c60101, #960909, #911f1f, #952929); /* Reversed gradient */
+        border-image-slice: 1;
+        border-radius: 25px;
+    }
+    100% {
+        border-image: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525); /* Initial gradient */
+        border-image-slice: 1;
+        border-radius: 25px;
+    }
+}
 
 /* Forms */
 .signin-signup {
@@ -78,13 +110,30 @@ form.sign-up-form {
     display: none;
 }
 
-/* Titles */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .title {
     font-size: 35px;
-    color: #800000;
+    color: transparent; /* Make text transparent to see the gradient */
+    background-image: linear-gradient(90deg, #ff7e5f, #feb47b, #800000, #ff7e5f); /* Gradient colors */
+    background-size: 200% 200%;
+    background-clip: text; /* Apply gradient to the text */
+    -webkit-text-fill-color: transparent; /* Ensure the gradient shows */
+    animation: gradientAnimation 3s ease infinite; /* Animate gradient */
     margin-bottom: 20%;
     margin-top: 10%;
 }
+
 
 /* Input Fields */
 .input-field {
@@ -186,25 +235,24 @@ form.sign-up-form {
     opacity: 1;
 }
 
-/* Modal Login */
 .modallogin {
     width: 90%;
     max-width: 350px;
-    background-color: white;
+    background-color: #fff;
     border: solid 2px #800000;
-    border-radius: 8px;
+    border-radius: 10px;
     position: fixed;
     top: 50%; /* Initial center position vertically */
     left: 50%; /* Initial center position horizontally */
     transform: translate(-50%, -150%); /* Start off-screen by translating vertically */
-    box-shadow: 7px 7px rgba(0, 0, 0, 0.381);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     z-index: 1000;
     text-align: center;
     padding: 20px;
     opacity: 0; /* Initially invisible */
     visibility: hidden; /* Prevent interaction initially */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
-                opacity 0.5s ease-in-out; /* Smooth slide and fade */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-in-out; /* Smooth slide and fade */
+    border-radius: 10px;
 }
 
 /* When modal is visible */
@@ -212,6 +260,23 @@ form.sign-up-form {
     transform: translate(-50%, -50%); /* Slide into the center */
     opacity: 1; /* Fully visible */
     visibility: visible; /* Allow interaction */
+}
+
+/* Modal Content */
+.modal-content-login {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Modal Message */
+.modal-content-loginto {
+    font-size: 16px;
+    color: #800000;
+    margin-top: 10px;
 }
 
 /* Close Button */
@@ -222,16 +287,32 @@ form.sign-up-form {
     cursor: pointer;
     font-size: 24px;
     color: #800000;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.2s ease-in-out;
 }
 
+/* Close Button Hover Effect */
+.closelogin:hover {
+    transform: rotate(90deg);
+}
+@keyframes modalFadeIn {
+    0% {
+        transform: translate(-50%, -150%);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
 
-.closelogin {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    color: #800000;
+.modallogin.show {
+    animation: modalFadeIn 0.6s ease-out forwards;
 }
 .show-password-btn {
     background: none;
@@ -244,10 +325,12 @@ form.sign-up-form {
   .show-password-btn:hover {
     background-color: lightgray;
     border-radius: 10px;
+    
   }
   .password-toggle{
     position: relative;
     right: 5%;
+    cursor: pointer;
   }
 
 /* Mobile Responsive */
@@ -255,6 +338,7 @@ form.sign-up-form {
     .container {
         width: 100%;
         height: auto;
+        left: 10%;
     }
 
     .title {
@@ -316,5 +400,9 @@ form.sign-up-form {
 
     .input-field input {
         font-size: 14px; /* Resize input text */
+    }
+    .modallogin{
+        width: 80%;
+        left: 47%;
     }
 }

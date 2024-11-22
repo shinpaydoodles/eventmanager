@@ -173,7 +173,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 999;
   }
-  
+  nav{
+    transition: 0.4s ease;
+  }
   .close-btn {
     border: none;
     font-size: 30px;
@@ -316,12 +318,15 @@
   cursor: pointer; 
   transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
 }
 #sidebar-hover:hover {
     background-color: #800000; 
     color: white; 
     cursor: pointer; 
     transition: background-color 0.3s ease, color 0.3s ease; 
+    transform: scale(0.95);
   }
   .divideradmin{
     height: 5px;
@@ -418,3 +423,20 @@
   .sidebarbuttonnn{
     background-color: white;
   }
+  .sidebar-container{
+    background-color: transparent;
+    height: 35%;
+    width: 1.5%;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    .sidebar-container{
+      height: 50%;
+      width: 7%;
+    }
+    .icon.menu{
+      left: 20%;
+      top: 19%;
+    }
+    
+}

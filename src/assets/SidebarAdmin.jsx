@@ -1,11 +1,14 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect, useRef } from 'react'; 
 import { Link, useNavigate } from 'react-router-dom';
 import './SidebarAdmin.css'; 
 
 const SidebarAdmin = () => { 
   const [isActive, setIsActive] = useState(false);
   const [isMenuIcon, setIsMenuIcon] = useState(true); 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  
+  // Create a ref for the sidebar container
+  const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsActive(!isActive);
@@ -19,13 +22,30 @@ const SidebarAdmin = () => {
   const userName = 'Luis Miguel Benico';  
   const userEmail = '22410185@cic.edu.ph';  
 
+  // Add event listener to close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsActive(false); // Close sidebar if click is outside
+        setIsMenuIcon(true); // Reset menu icon to 'menu' state
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className='sidebar-container'>
-      <div className='sidebarbuttonnn'onClick={toggleSidebar}>
-      <div className={`icon ${isMenuIcon ? 'menu' : 'close'}`} onClick={toggleSidebar}></div>
+    <div className='sidebar-container' onClick={toggleSidebar}>
+      <div className='sidebarbuttonnn' onClick={toggleSidebar}>
+        <div className={`icon ${isMenuIcon ? 'menu' : 'close'}`} onClick={toggleSidebar}></div>
       </div>
       {isActive && ( 
-        <nav className={`sidebar active`}>
+        <nav className={`sidebar active`} ref={sidebarRef}>
           <div className='sbt'>
             <div className='profile'>
               <img 

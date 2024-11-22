@@ -133,9 +133,9 @@
   
   #calendar-title{
     position: absolute; 
-    top: -100px;
-    left: 40%;
     font-size: 50px;
+    top: -100px;
+    left: 35%;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #ffffff;
@@ -246,5 +246,133 @@
     resize: horizontal;
     overflow: auto;
   }
-  
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%; /* Adjust modal width for smaller screens */
+    padding: 20px; /* Reduce padding */
+  }
+
+  .next-buttonadmin, .back-buttonadmin {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+
+  .next-buttonadmin {
+    right: 40px;
+  }
+
+  .back-buttonadmin {
+    left: 40px;
+  }
+
+  .eventsbutton, .holidaybutton, .saveevent, .cancel, .deleteevent {
+    padding: 5px 12px;
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .headngmodal {
+    font-size: 24px; /* Adjust heading size for mobile */
+  }
+
+  .modal-content label {
+    font-size: 14px; /* Adjust label font size for readability */
+  }
+
+  .titlemodal, .wheremodal, .starttimemodal,
+  .endtimemodal, .attiremodal, .descripmodal {
+    width: 100%; /* Full width for input fields */
+  }
+
+  #calendar-title {
+    font-size: 10px; /* Adjust calendar title for mobile */
+    top: -80px;
+    left: 20%;
+  }
+
+  .full-calendar-containeradmin {
+    width: 100%; /* Full width for calendar container */
+    top: 100px;
+    height: auto; /* Allow container to adjust based on content */
+  }
+
+  /* Adjust day cells and events for mobile view */
+  .fc-day {
+    background-color: #ffffff;
+    color: black;
+    font-size: 12px; /* Smaller text for days */
+    padding: 5px; /* Space out the content */
+  }
+
+  .fc-daygrid-day {
+    color: #757575;
+    font-size: 12px; /* Adjust day number size */
+    padding: 8px; /* Space out days */
+  }
+
+  .fc-daygrid-event {
+    background-color: #f3f3f3;
+    color: black;
+    cursor: pointer;
+    font-size: 12px; /* Smaller event font size */
+    padding: 6px 10px; /* Adjust padding for events */
+    width: auto; /* Allow events to adjust width based on content */
+  }
+
+  /* Improve visibility and responsiveness of event text */
+  .fc-daygrid-event .fc-title {
+    font-size: 12px; /* Smaller text for event title */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Add ellipsis for long titles */
+  }
+
+  .fc-daygrid-day-events {
+    font-size: 12px; 
+    width: auto; /* Adjust width of event container */
+  }
+}
+
+/* Small mobile adjustments for screens under 480px */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 15px; /* Further reduce padding */
+  }
+
+  .headngmodal {
+    font-size: 20px; /* Smaller heading font size */
+  }
+
+  .titlemodal, .wheremodal, .starttimemodal,
+  .endtimemodal, .attiremodal, .descripmodal {
+    width: 100%; /* Ensure input fields take full width */
+  }
+
+  .cancel {
+    font-size: 13px; /* Adjust cancel button font size */
+  }
+
+  #calendar-title {
+    font-size: 30px; /* Further reduce title font size */
+  }
+
+  .fc-daygrid-event {
+    font-size: 11px; /* Smaller font size for events */
+    padding: 4px 8px; /* Reduce padding */
+  }
+
+  /* Adjust calendar day cells further for tiny screens */
+  .fc-daygrid-day {
+    font-size: 10px; /* Even smaller text for small screens */
+    padding: 5px; /* Reduce padding for small screens */
+  }
+
+  .fc-day {
+    font-size: 10px; /* Smaller text for day numbers */
+    padding: 5px;
+  }
+}
+
   
