@@ -24,6 +24,7 @@ const CalendarAdmin = () => {
   const [saveConfirmModal, setSaveConfirmModal] = useState(false); 
   const [validationModal, setValidationModal] = useState(false);
   const [invalidValueModal, setInvalidValueModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [validationMessage, setValidationMessage] = useState('');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedType, setSelectedType] = useState('');
@@ -76,14 +77,22 @@ const CalendarAdmin = () => {
       start: event.start.toISOString(),
       end: event.end ? event.end.toISOString() : null,
     };
-
+  
     try {
+      setLoading(true); // Set loading state to true
+      // Update event in backend
       await axios.put(`/api/events/${event.id}`, updatedEvent);
+  
+      // Update local state with the new event data
       setEvents((prevEvents) =>
-        prevEvents.map((evt) => (evt._id === event.id ? { ...evt, ...updatedEvent } : evt))
+        prevEvents.map((evt) =>
+          evt._id === event.id ? { ...evt, ...updatedEvent } : evt
+        )
       );
     } catch (error) {
-      console.error('Error updating event after drag and drop:', error);
+      console.error("Error updating event after drag and drop:", error);
+    } finally {
+      setLoading(false); // Reset loading state
     }
   };
 
