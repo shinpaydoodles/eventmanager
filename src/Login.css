@@ -13,7 +13,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     max-width: 80%;
-    background-image: url("https://lcdn-hk.icons8.com/c/4cM6VWRuW0mT2pL_fhH_6g/66630eb033bb926b98e2afeb164b8578bb8e7d13.png");
+    background-image: url("/public/cicbackgroun.JPEG");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,15 +25,14 @@ body {
     max-width: 1200px;
     height: 52vh;
     background: #fff;
-    border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     left: 35%;
-    border: 5px solid transparent; /* Initially transparent border */
-    background-clip: padding-box; /* Ensures the border animation doesn't cover content */
-    animation: gradient-border 3s infinite linear; /* Apply animation */
+    border: 5px solid transparent; 
+    background-clip: padding-box; 
+    animation: gradient-border 3s infinite linear; 
 }
 .container::before {
     content: "";
@@ -42,28 +41,24 @@ body {
     left: -5px; 
     right: -5px;
     bottom: -5px;
-    border-radius: 25px; /* Curved border */
-    background: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525); /* Gradient color */
+    background: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525);
     z-index: -1;
-    animation: gradient-border 3s infinite linear; /* Apply animation */
+    animation: gradient-border 3s infinite linear; 
 }
 
-/* Keyframe for border animation with gradient effect */
+
 @keyframes gradient-border {
     0% {
         border-image: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525); /* Initial gradient */
         border-image-slice: 1;
-        border-radius: 25px;
     }
     50% {
         border-image: linear-gradient(45deg, #c60101, #960909, #911f1f, #952929); /* Reversed gradient */
         border-image-slice: 1;
-        border-radius: 25px;
     }
     100% {
         border-image: linear-gradient(45deg, #ff0000, #fb0808, #f75616, #ff2525); /* Initial gradient */
         border-image-slice: 1;
-        border-radius: 25px;
     }
 }
 
@@ -293,7 +288,7 @@ form.sign-up-form {
     transition: transform 0.2s ease-in-out;
 }
 
-/* Close Button Hover Effect */
+
 .closelogin:hover {
     transform: rotate(90deg);
 }
@@ -339,7 +334,7 @@ form.sign-up-form {
     .container {
         width: 100%;
         height: auto;
-        left: 10%;
+        left: 15%;
     }
 
     .title {
@@ -360,6 +355,12 @@ form.sign-up-form {
         display: block;
         text-align: center;
         margin-top: 20px;
+    }
+    body {
+        background-image: url("/public/imgmobile.png"); 
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
 

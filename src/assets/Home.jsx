@@ -36,8 +36,8 @@ const Home = () => {
                   <div key={event._id} className="event-item">
                   <p>Title: {event.title}</p>
                   <p>Where: {event.where}</p>
-                  <p>Start: {new Date(event.start).toLocaleDateString()}</p>
-                  <p>End: {new Date(event.end).toLocaleDateString()}</p>
+                  <p>Start: {new Date(event.start).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                  <p>End: {new Date(event.end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                   <p>Attire: {event.attire}</p>
                   <p>Description: {event.description}</p>
                   </div>
