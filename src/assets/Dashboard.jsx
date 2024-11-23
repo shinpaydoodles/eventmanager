@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SidebarAdmin from './SidebarAdmin';
 import './Dashboard.css'; 
 
 // Define users and admins at the top of the file
@@ -59,6 +60,8 @@ const Dashboard = () => {
   });
   const [loading, setLoading] = useState(true);
 
+  const currentUser = admins[1]; // Set the current logged-in user (example)
+
   const countUsers = () => {
     const totalUsers = users.length + admins.length; // Total users including admins
     const registeredUsers = users.length; // Registered users are the non-admin users
@@ -99,6 +102,7 @@ const Dashboard = () => {
 
   return (
     <div className="container-dashboard">
+
       <h1 className="titledashboard">Dashboard</h1>
       <div className="dashboard-container">
         {loading ? (

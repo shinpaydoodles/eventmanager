@@ -6,10 +6,10 @@ import Home from '../assets/Home.jsx';
 import Dashboard from '../assets/Dashboard.jsx';
 import './Adminapp.css';
 
-const AdminApp = () => {
+const AdminApp = ({ userInfo }) => {
   return (
     <div className="header">
-      <SidebarAdmin />
+      <SidebarAdmin userInfo={userInfo} />
       <div className="app-container">
         <main className="content">
           <Routes>

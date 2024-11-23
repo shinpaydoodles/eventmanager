@@ -1,4 +1,14 @@
-
+body::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150vh;
+  max-width: 80%;
+  background-image: url("/public/cicbackgroun.JPEG");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .events-container {
   padding: 20px;
   height: auto;
@@ -42,9 +52,10 @@
 @media (max-width: 768px) {
   .events-container {
     width: 90%; 
-    margin-left: 5%; 
+    margin-left: -25px; 
     margin-top: 5%; 
     padding: 15px; 
+    position: absolute;
   }
 
   .event-title {
@@ -64,7 +75,6 @@
 @media (max-width: 450px) {
   .events-container {
     width: 95%; 
-    margin-left: .5%; 
     margin-top: 19%;
     padding: 10px; 
   }

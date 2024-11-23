@@ -29,12 +29,16 @@
 .icon.menu:after {
   top: 16px;
 }
-
+.icon.menu:hover{
+  transform: scale(1.2);
+}
 .icon.close:before {
   transform: rotate(45deg);
   top: 12px;
 }
-
+.icon.menu:after:hover{
+  transform: scale(1.2);
+}
 .icon.close:after {
   transform: rotate(-45deg);
   top: 12px;
@@ -441,9 +445,15 @@
       left: 20%;
       top: 19%;
     }
+    .icon.close{
+      left: 200px !important;
+      top: 30px !important;
+    }
     .icon.close:before{
       top: 15%;
-
+    }
+    .iconbgadmin{
+      left: 0px;
     }
     
 }

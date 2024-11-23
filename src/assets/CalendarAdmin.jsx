@@ -20,13 +20,17 @@ const CalendarAdmin = () => {
   });
   const [showModal, setShowModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteSuccessModal, setDeleteSuccessModal] = useState(false);
   const [saveConfirmModal, setSaveConfirmModal] = useState(false); 
+  const [validationModal, setValidationModal] = useState(false);
+  const [invalidValueModal, setInvalidValueModal] = useState(false);
+  const [validationMessage, setValidationMessage] = useState('');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedType, setSelectedType] = useState('');
   const calendarRef = useRef();
 
   axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
-  
+
   const handleDeleteEvent = async () => {
     if (selectedEvent) {
       try {
@@ -35,30 +39,53 @@ const CalendarAdmin = () => {
         setShowModal(false);
         setDeleteModal(false);
         setSelectedEvent(null);
+  
+        // Show success modal
+        setDeleteSuccessModal(true);
       } catch (error) {
         console.error('Error deleting event:', error);
       }
     }
   };
+  
+
   const handleEventResize = async (resizeInfo) => {
     const { event } = resizeInfo;
-    console.log("Resizing event:", event);
-    try {
-      const updatedEvent = {
-        start: event.start.toISOString(),
-        end: event.end ? event.end.toISOString() : null, // If no end date, set to null
-      };
+    const updatedEvent = {
+      start: event.start.toISOString(), // Get the updated start time in ISO format
+      end: event.end ? event.end.toISOString() : null, // Get the updated end time, null if not available
+    };
   
+    try {
+      // Update the event in the backend
       await axios.put(`/api/events/${event.id}`, updatedEvent);
-      
+  
+      // Update the events in the state to reflect the resized event
       setEvents((prevEvents) =>
-        prevEvents.map((evt) => (evt._id === event.id ? { ...evt, ...updatedEvent } : evt))
+        prevEvents.map((evt) =>
+          evt._id === event.id ? { ...evt, ...updatedEvent } : evt
+        )
       );
     } catch (error) {
       console.error("Error updating event:", error);
     }
   };
+  const handleEventDrop = async (info) => {
+    const { event } = info;
+    const updatedEvent = {
+      start: event.start.toISOString(),
+      end: event.end ? event.end.toISOString() : null,
+    };
 
+    try {
+      await axios.put(`/api/events/${event.id}`, updatedEvent);
+      setEvents((prevEvents) =>
+        prevEvents.map((evt) => (evt._id === event.id ? { ...evt, ...updatedEvent } : evt))
+      );
+    } catch (error) {
+      console.error('Error updating event after drag and drop:', error);
+    }
+  };
 
   const handleDateClick = (info) => {
     setSelectedDate(info.dateStr);
@@ -66,31 +93,77 @@ const CalendarAdmin = () => {
     setShowModal(true);
     setSelectedEvent(null); 
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const startDateTime = new Date(`${selectedDate}T${newEvent.start}`).toISOString();
-    const endDateTime = new Date(`${selectedDate}T${newEvent.end}`).toISOString();
-
-    const eventToAdd = {
+  
+    // Validate required fields
+    if (!newEvent.title || !newEvent.start || !newEvent.end) {
+      setValidationMessage("Please fill in all the required fields.");
+      setValidationModal(true);
+      return;
+    }
+  
+    // Validate title (alphanumeric and spaces only)
+    const titlePattern = /^[A-Za-z0-9\s]+$/;
+    if (!titlePattern.test(newEvent.title)) {
+      setValidationMessage("Title can only contain letters, numbers, and spaces.");
+      setValidationModal(true);
+      return;
+    }
+  
+    // Validate attire (alphanumeric and spaces only)
+    const attirePattern = /^[A-Za-z0-9\s]+$/;
+    if (newEvent.attire && !attirePattern.test(newEvent.attire)) {
+      setValidationMessage("Attire can only contain letters, numbers, and spaces.");
+      setValidationModal(true);
+      return;
+    }
+  
+    // Validate start and end times
+    const startTime = new Date(`${selectedDate}T${newEvent.start}`);
+    const endTime = new Date(`${selectedDate}T${newEvent.end}`);
+    if (startTime >= endTime) {
+      setValidationMessage("Start time must be before end time.");
+      setValidationModal(true);
+      return;
+    } else if (!newEvent.start || !newEvent.end) {
+      setValidationMessage("Time must be declared.");
+      setInvalidValueModal(true);
+      return;
+    }
+  
+    const startDateTime = startTime.toISOString();
+    const endDateTime = endTime.toISOString();
+  
+    const eventToSave = {
       ...newEvent,
       start: startDateTime,
       end: endDateTime,
-      color: selectedType === 'holiday' ? 'goldenrod' : '#800000', 
+      color: selectedType === 'holiday' ? 'goldenrod' : '#800000',
     };
-
+  
     try {
-      const response = await axios.post('/api/events', eventToAdd);
-      setEvents((prev) => [...prev, response.data]);
-      setShowModal(false); 
-      setNewEvent({ title: '', where: '', start: '', end: '', attire: '', description: '', color: '' }); 
+      if (selectedEvent) {
+        // Edit existing event
+        const response = await axios.put(`/api/events/${selectedEvent._id}`, eventToSave);
+        setEvents((prevEvents) =>
+          prevEvents.map((evt) => (evt._id === selectedEvent._id ? { ...evt, ...eventToSave } : evt))
+        );
+      } else {
+        // Add new event
+        const response = await axios.post('/api/events', eventToSave);
+        setEvents((prev) => [...prev, response.data]);
+      }
+      setShowModal(false);
+      setNewEvent({ title: '', where: '', start: '', end: '', attire: '', description: '', color: '' });
       setSaveConfirmModal(true);
     } catch (error) {
       console.error('Error saving event:', error);
     }
   };
-  
+
+
 
   const handleEventClick = (info) => {
     const clickedEvent = events.find(event => event._id === info.event.id);
@@ -105,16 +178,16 @@ const CalendarAdmin = () => {
     setSelectedType('event');
     setNewEvent((prev) => ({
       ...prev,
-      color: '#800000', 
+      color: '#800000',
     }));
     setShowModal(true);
   };
-  
+
   const handleHolidayButtonClick = () => {
     setSelectedType('holiday');
     setNewEvent((prev) => ({
       ...prev,
-      color: 'goldenrod', 
+      color: 'goldenrod',
     }));
     setShowModal(true);
   };
@@ -148,13 +221,23 @@ const CalendarAdmin = () => {
         setEvents(data); 
       } catch (error) {
         console.error("Error fetching events:", error);
-      } finally {
-        setLoading(false); 
       }
     };
 
     fetchEvents(); 
   }, []); 
+
+  useEffect(() => {
+    if (showModal || deleteModal || saveConfirmModal || validationModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto'; 
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showModal, deleteModal, saveConfirmModal, validationModal]);
 
   return (
     <div className='full-calendar-containeradmin'>
@@ -164,8 +247,7 @@ const CalendarAdmin = () => {
         <button onClick={goToNext} className="next-buttonadmin" id='nextbuttonadmin'></button>
       </div>
       <FullCalendar
-      className="fulladmincalendar"
-        ref={calendarRef} 
+        ref={calendarRef}
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
         events={events.map(event => ({
@@ -178,6 +260,8 @@ const CalendarAdmin = () => {
         dateClick={handleDateClick}
         eventClick={handleEventClick}
         headerToolbar={false}
+        droppable={true} 
+        eventDrop={handleEventDrop}
         dayHeaderContent={(args) => {
           return args.date.toLocaleDateString('en-US', { weekday: 'long' });
         }}
@@ -190,7 +274,7 @@ const CalendarAdmin = () => {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-          <button type="button" onClick={() => setShowModal(false)} className='cancel'>X</button>
+          <button type="button" onClick={() => setShowModal(false)} className='cancel'>&times;</button>
             <h2 className='headngmodal'>{selectedEvent ? "Edit Event" : "Add New Event"}</h2>
             <form onSubmit={handleSubmit}>
               <label>
@@ -265,7 +349,7 @@ const CalendarAdmin = () => {
       )}
 
       {deleteModal && (
-        <div className="modal">
+        <div className="modaldel">
           <div className="modal-content">
             <h2 className='headngconfirmmodal'>Are you sure you want to delete this event?</h2>
             <button onClick={handleDeleteEvent} className='confirm-delete'>Yes</button>
@@ -273,12 +357,38 @@ const CalendarAdmin = () => {
           </div>
         </div>
       )}
+       {invalidValueModal && (
+      <div className="modalinvalid">
+        <div className="modal-content">
+          <h2 className='headngconfirmmodal'>{validationMessage}</h2>
+          <button onClick={() => setInvalidValueModal(false)} className='close-invalid'>&times;</button>
+        </div>
+      </div>
+       )}
+      {deleteSuccessModal && (
+  <div className="modaldelete">
+    <div className="modal-content">
+      <h2 className='headngconfirmmodal'>Event deleted successfully!</h2>
+      <button onClick={() => setDeleteSuccessModal(false)} className='close-delete'>&times;</button>
+    </div>
+  </div>
+)}
+
 
       {saveConfirmModal && (
-        <div className="modaldeleted">
-          <div className="modal-contentdeleted">
+        <div className="modalsave">
+          <div className="modal-content">
             <h2 className='headngconfirmmodal'>Event saved successfully!</h2>
-            <button onClick={() => setSaveConfirmModal(false)} className='close-confirm'>X</button>
+            <button onClick={() => setSaveConfirmModal(false)} className='close-save'>&times;</button>
+          </div>
+        </div>
+      )}
+
+      {validationModal && (
+        <div className="modalvalidation">
+          <div className="modal-content">
+            <h2 className='headngconfirmmodal'>{validationMessage}</h2>
+            <button onClick={() => setValidationModal(false)} className='close-validation'>&times;</button>
           </div>
         </div>
       )}

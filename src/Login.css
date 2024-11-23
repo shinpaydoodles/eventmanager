@@ -12,6 +12,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    max-height: fit-content;
     max-width: 80%;
     background-image: url("/public/cicbackgroun.JPEG");
     background-size: 100% 100%;

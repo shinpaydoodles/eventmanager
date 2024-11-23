@@ -21,7 +21,7 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-
+    // Check if user exists in either users or admins
     const user = users.find(
       (user) => user.email === formData.email && user.password === formData.password
     );
@@ -48,7 +48,7 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); 
+    setShowPassword(!showPassword); // Toggle password visibility
   };
 
   const closeModal = () => {

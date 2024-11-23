@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SidebarAdmin.css'; 
 
-const SidebarAdmin = () => { 
+const SidebarAdmin = ({ userName, userEmail }) => { 
   const [isActive, setIsActive] = useState(false);
   const [isMenuIcon, setIsMenuIcon] = useState(true); 
   const navigate = useNavigate();
@@ -16,11 +16,8 @@ const SidebarAdmin = () => {
   };
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/"); // Redirect to login page
   };
-
-  const userName = 'Luis Miguel Benico';  
-  const userEmail = '22410185@cic.edu.ph';  
 
   // Add event listener to close sidebar when clicking outside
   useEffect(() => {

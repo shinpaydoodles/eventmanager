@@ -1,26 +1,116 @@
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    color: black; 
-    overflow-y: hidden;
-  }
-  
-  .modal-content {
-    background-color: rgb(255, 255, 255);
-    padding: 50px;
-    border-radius: 5px;
-    width: 350px;
-    box-shadow: 0px 2px 4px rgba(100,100,100,0.5);
-    overflow-y: hidden;
-  }
+
+
+
+.modal, .modaldel, .modalsave, .modaldelete, .modalinvalid, .modalvalidation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: black;
+  overflow-y: hidden;
+}
+
+/* Modal Content */
+.modal-content, .modal-contentdeleted, .modal-contentconfirm {
+  background-color: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 5px;
+  width: 350px;
+  box-shadow: 0px 2px 4px rgba(100, 100, 100, 0.5);
+  overflow-y: hidden;
+}
+
+/* Modal Header */
+.headngconfirmmodal {
+  color: #800000;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  font-size: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+/* Confirmation Modal Styles */
+.modalsave .modal-contentdeleted {
+  background-color: #ffffff;
+  border: 5px solid #800000;
+}
+
+
+.cancel{
+  position: absolute;
+  top: 6%;
+  right: 40%;
+  cursor: pointer;
+  font-size: 40px;
+  color: #800000;
+  background-color: transparent;
+  border: none;
+  transition: transform 0.2s ease-in-out;
+  z-index: 100;
+}
+.cancel:hover{
+  transform: rotate(90deg);
+}
+.cancel-delete, .close-save, .close-validation, .close-delete, .close-invalid{
+  position: absolute;
+  top: 38%;
+  right: 41%;
+  cursor: pointer;
+  font-size: 30px;
+  color: #800000;
+  background-color: transparent;
+  border: none;
+  transition: transform 0.2s ease-in-out;
+  z-index: 100;
+}
+.cancel-delete:hover, .close-save:hover, .close-validation:hover, .close-delete:hover, .close-invalid:hover {
+  transform: rotate(90deg);
+}
+
+
+/* Delete Button */
+.confirm-delete {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.confirm-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* Buttons */
+.eventsbutton, .holidaybutton {
+  background-color: white;
+  border: solid #800000;
+  padding: 8px 20px;
+  color: #800000;
+  cursor: pointer;
+  border-radius: 9px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.eventsbutton:hover, .holidaybutton:hover {
+  background-color: #f0f0f0;
+}
   .next-buttonadmin, .back-buttonadmin {
     width: 50px;
     height: 50px;
@@ -79,7 +169,7 @@
     display: block;
     margin-bottom: 10px;
   }
-  .eventsbutton, .holidaybutton, .saveevent, .cancel {
+  .eventsbutton, .holidaybutton, .saveevent {
     transition: background-color 0.3s ease; 
   }
   .eventsbutton::selection{
@@ -95,9 +185,7 @@
   
   }
   .saveevent:hover,
-  .cancel:hover {
-    background-color:lightgray;
-  }
+
   
   .saveevent {
     background-color: white;
@@ -118,13 +206,7 @@
     margin-right: 40px;
   }
   
-  .cancel{
-  background-color: white;
-    color: #800000;
-    border: solid #800000;
-    border-radius: 10px;
-    padding: 8px 10px;
-  }
+
   
   .deleteevent:hover {
     background-color: lightgray;
@@ -157,13 +239,7 @@
     width: 200px;
   }
   
-  .headngconfirmmodal{
-    color: #800000;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bolder;
-    font-size: 30px;
-    margin-bottom: 40px;
-  }
+
   
   .confirm-delete{
     height: 35px;
@@ -188,23 +264,9 @@
     background-color: lightgrey;
     
   }
-  .cancel{
-    background-color: white;
-    color: #800000;
-    border: none;
-    height: 35px;
-    width: 30px;
-    font-size: 15px;
-    position: fixed;
-    right: 615px;
-    margin-right: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  .cancel:hover{
-    background-color: lightgray;
-    height: 40px;
-    cursor: pointer;
-  }
+
+  
+
   .close-confirm{
     color: #800000;
     left: 58.5%;
@@ -357,6 +419,13 @@
   #calendar-title {
     font-size: 30px; /* Further reduce title font size */
   }
+  .fc{
+    width: 380px;
+  }
+  .full-calendar-containeradmin{
+    width: 380px;
+    left: -5px;
+  }
 
   .fc-daygrid-event {
     font-size: 11px; /* Smaller font size for events */
@@ -374,5 +443,6 @@
     padding: 5px;
   }
 }
+
 
   

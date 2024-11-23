@@ -113,9 +113,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     display: block;
     margin-bottom: 10px;
   }
-  .eventsbutton, .holidaybutton, .saveevent, .cancel {
-    transition: background-color 0.3s ease; 
-  }
+ 
   .eventsbutton::selection{
     background-color: #800000;
   }
@@ -129,9 +127,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
   
   }
   .saveevent:hover,
-  .cancel:hover {
-    background-color:lightgray;
-  }
+
   
   .saveevent {
     background-color: white;
@@ -152,13 +148,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     margin-right: 40px;
   }
   
-  .cancel{
-  background-color: white;
-    color: #800000;
-    border: solid #800000;
-    border-radius: 10px;
-    padding: 8px 10px;
-  }
+
   
   .deleteevent:hover {
     background-color: lightgray;
@@ -219,21 +209,8 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     background-color: lightgrey;
     
   }
-  .cancel{
-    background-color: white;
-    color: #800000;
-    border: none;
-    height: 30px;
-    width: 30px;
-    font-size: 20px;
-    position: fixed;
-    right: 580px;
-    top: 25px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  .cancel:hover{
-    background-color: lightgray;
-  }
+
+
   .full-calendar-containeruserweek{
     position: absolute;
     height: 900px;
