@@ -252,7 +252,7 @@ const CalendarAdmin = () => {
     <div className='full-calendar-containeradmin'>
       <div className='calendar-controls'>
         <button onClick={goToPrev} className="back-buttonadmin" id='backbuttonadmin'></button>
-        <span id='calendar-title'>{new Date().toLocaleString('default', { month: 'long' })} 
+        <span id='calendar-title'>{new Date().toLocaleString('default', { month: 'long' })} {''}
           {new Date().getFullYear()}</span>
         <button onClick={goToNext} className="next-buttonadmin" id='nextbuttonadmin'></button>
       </div>
