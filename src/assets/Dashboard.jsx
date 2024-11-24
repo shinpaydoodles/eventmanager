@@ -105,25 +105,30 @@ const Dashboard = () => {
       <h1 className="titledashboard">Dashboard</h1>
       <div className="dashboard-container">
         {loading ? (
-          <p>Loading statistics...</p>
+          <p>Loading dashboard...</p>
         ) : (
           <>
-            <div className="elementss">
-              <h2>Total Users</h2>
-              <p>{stats.totalUsers}</p>
+            <div className="dashboard-row">
+              <div className="elementss element-small">
+                <h2>Total Users</h2>
+                <p className='number'>{stats.totalUsers}</p>
+              </div>
+              <div className="elementss element-small">
+                <h2>Registered Users</h2>
+                <p className='number' id='reguser'>{stats.registeredUsers}</p>
+              </div>
             </div>
-            <div className="elementss">
-              <h2>Registered Users</h2>
-              <p>{stats.registeredUsers}</p>
+            <div className="dashboard-row">
+              <div className="elementss element-large" id="totalevents">
+                <h2>Total Events</h2>
+                <p className='number1'>{stats.totalEvents}</p>
+              </div>
             </div>
-            <br />
-            <div className="elementss" id="totalevents">
-              <h2>Total Events</h2>
-              <p>{stats.totalEvents}</p>
-            </div>
-            <div className="elementss" id="totalholiday">
-              <h2>Total Holidays</h2>
-              <p>{stats.totalHolidays}</p>
+            <div className="dashboard-row">
+              <div className="elementss element-large" id="holidays">
+                <h2>Total Holidays</h2>
+                <p className='number2'>{stats.totalHolidays}</p>
+              </div>
             </div>
           </>
         )}

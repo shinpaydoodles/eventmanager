@@ -32,23 +32,7 @@
 
 }
 
-.userbutton{
-color: #800000;
-left: 58.5%;
-top: 48%;
-position: absolute;
-margin-top: -100px;
-font-size: 20px;
-background-color: white;
-border: none;
-width: 30px;
-border-radius: 8px;
-}
 
-.userbutton:hover{
-background-color: lightgray;
-cursor: pointer;
-}
 
 .usermodal{
 color: #757575;
@@ -155,12 +139,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
   }
   
   
-  #calendar-title{
-    position: absolute; 
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: #ffffff;
-  } 
+
   
   .headngmodal{
     color: #800000;
@@ -240,5 +219,40 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     .fc-event-time{
         display: none;
     }
+    #calendar-titleuser{
+      font-size: 25px; 
+      position: absolute;
+      top: -90px;
+      left: 36%;
+      font-size: 40px;
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      white-space: nowrap;
+    }
 
+    @media (max-width: 480px) {
+      .back-buttonweek{
+        left: 10px;
+        top: 0px;
+        height: 40px;
+        width: 40px;
+      }
+      .next-buttonweek{
+        left: 320px;
+        height: 40px;
+        width: 40px;
+      }
+      .full-calendar-containeruserweek{
+        height: 310px;
+        top: 150px;
+      }
+      #calendar-titleuser{
+        font-size: 25px; 
+        position: absolute;
+        top: -50px;
+        left: 10vh;
+        white-space: nowrap;
+      }
+    }
   

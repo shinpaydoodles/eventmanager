@@ -320,7 +320,6 @@
     color: black;
     cursor: pointer;
     resize: horizontal;
-    overflow: auto;
   }
   .maintitle{
     display: none;

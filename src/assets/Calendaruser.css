@@ -34,21 +34,20 @@
   }
 
   .userbutton{
-color: #800000;
-left: 58.5%;
-top: 48%;
-position: absolute;
-margin-top: -100px;
-font-size: 20px;
-background-color: white;
-border: none;
-width: 30px;
-border-radius: 8px;
+    position: absolute;
+    top: 38%;
+    right: 41%;
+    cursor: pointer;
+    font-size: 30px;
+    color: #800000;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.2s ease-in-out;
+    z-index: 100;
   }
 
 .userbutton:hover{
-  background-color: lightgray;
-  cursor: pointer;
+  transform: rotate(90deg);
 }
 
   .next-buttonuser, .back-buttonuser {
@@ -133,14 +132,17 @@ border-radius: 8px;
   }
   
   
-  #calendar-title{
+
+  
+  #calendar-titleusermonth{
     position: absolute; 
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #ffffff;
+    top: -89px;
+    left: 38%;
+    font-size: 40px;
   } 
-  
-
   
  
   
@@ -173,4 +175,33 @@ border-radius: 8px;
     color: rgb(70, 70, 70);
     border-radius: 30px;
   }
-  
+  @media (max-width: 480px) {
+    .back-buttonuser{
+      left: 10px;
+      top: 0px;
+      height: 40px;
+      width: 40px;
+    }
+    .next-buttonuser{
+      left: 320px;
+      height: 40px;
+      width: 40px;
+    }
+    .full-calendar-containeruser{
+      height: 310px;
+      top: 150px;
+    }
+    #calendar-titleusermonth{
+      font-size: 25px; 
+      position: absolute;
+      top: -70px;
+      left: 10vh;
+      white-space: nowrap;
+    }
+    .userbutton{
+      right: 70px;
+    }
+    .fc-daygrid-event{
+      overflow: hidden;
+    }
+  }

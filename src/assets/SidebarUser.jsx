@@ -39,7 +39,7 @@ const SidebarUser = ({ changeView }) => {
 
 
   return (
-    <div className='sidebar-container'>
+    <div className='sidebar-container'onClick={toggleSidebar}>
       <div className={`icon ${isMenuIcon ? 'menu' : 'close'}`} onClick={toggleSidebar}></div>
 
       {isActive && ( 

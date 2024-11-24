@@ -56,7 +56,7 @@ const WeekView = () => {
   const updateCalendarTitle = (calendarApi) => {
     const currentView = calendarApi.view;
     const title = currentView.title; 
-    document.getElementById('calendar-title').innerText = title; 
+    document.getElementById('calendar-titleuser').innerText = title; 
   };
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const WeekView = () => {
     <div className='full-calendar-containeruserweek'>
       <div className='calendar-controls'>
         <button onClick={goToPrev} className="back-buttonweek" id='prevbuttonweek'></button>
-        <span id='calendar-title'>{new Date().toLocaleString('default', { month: 'long' })} {new Date().getFullYear()}</span>
+        <span id='calendar-titleuser'>{new Date().toLocaleString('default', { month: 'long' })} {new Date().getFullYear()}</span>
         <button onClick={goToNext} className="next-buttonweek" id='nextbuttonweek'></button>
       </div>
       
@@ -92,9 +92,9 @@ const WeekView = () => {
       />
 
       {showModal && selectedEvent && (
-        <div className="modal">
+        <div className="modaluser">
           <div className="modal-content">
-            <button className='userbutton' onClick={closeModal}>X</button>
+            <button className='userbutton' onClick={closeModal}>&times;</button>
             <h2 className='titlengevent'>{selectedEvent.title}</h2>
             <div className='usermodal'>
               <p><strong>Where:</strong> {selectedEvent.where}</p>
