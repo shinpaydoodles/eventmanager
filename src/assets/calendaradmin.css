@@ -445,7 +445,7 @@
     font-size: 25px; 
     position: absolute;
     top: -70px;
-    left: 11vh;
+    left: 14vh;
     white-space: nowrap;
   }
   .calendar-controls{
@@ -456,20 +456,20 @@
     left: 10px;
   }
   .next-buttonadmin{
-    left: 290px;
+    left: 330px;
   }
   .fc{
-    width: 380px;
+    width: 420px;
     height: 314px;
     top: 150px;
-    left: 25px;
+    left: -10px;
   }
   .full-calendar-containeradmin{
-    width: 380px;
-    left: -5px;
+    width: 420px;
+    left: 0px;
     height: 300px;
     top: 150px;
-    left: 25px;
+    left: 5px;
   }
 
   .fc-daygrid-event {

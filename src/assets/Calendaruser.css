@@ -189,8 +189,10 @@
     }
     .full-calendar-containeruser{
       height: 310px;
+      width: 100%;
       top: 150px;
     }
+    
     #calendar-titleusermonth{
       font-size: 25px; 
       position: absolute;
