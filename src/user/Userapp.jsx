@@ -8,6 +8,7 @@ import './Userapp.css';
 
 const UserApp = () => {
   return (
+    <>
     <div className="header">
       <SidebarUser />
       <div className="app-container">
@@ -21,6 +22,7 @@ const UserApp = () => {
         </main>
       </div>
     </div>
+    </>
   );
 };
 

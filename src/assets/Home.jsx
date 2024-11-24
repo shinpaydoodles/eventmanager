@@ -24,12 +24,15 @@ const Home = () => {
     fetchEvents(); 
   }, []); 
 
+
   
   const backgroundColor = events.length > 0 ? events[0].color : "#fff"; 
 
   return (
+    <>
+    <h1 className="hometitle">School Event Manager</h1>
     <div className="events-container" >
-                  <div className="events-list">
+              <div className="events-list">
               <h2 className="event-title">Events List</h2>
               {events.length > 0 ? (
                 events.map((event) => (
@@ -47,6 +50,7 @@ const Home = () => {
               )}
             </div>
             </div>
+            </>
   );  
 };
 

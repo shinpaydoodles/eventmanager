@@ -14,7 +14,7 @@ body::after {
   height: auto;
   width: 45%;
   margin-top: 7%;
-  margin-left: 26.5%;
+  margin-left: 25%;
   border-radius: 5px;
   background-color: #9e252585;
   position: absolute;
@@ -47,7 +47,13 @@ body::after {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
 }
-
+.hometitle{
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  position: relative;
+  left: 69vh;
+  font-size: 45px;
+}
 /* for mobile view */
 @media (max-width: 768px) {
   .events-container {
@@ -57,7 +63,10 @@ body::after {
     padding: 15px; 
     position: absolute;
   }
-
+  .hometitle{
+    left: 5vh;
+    font-size: 30px;
+  }
   .event-title {
     font-size: 24px; 
   }
