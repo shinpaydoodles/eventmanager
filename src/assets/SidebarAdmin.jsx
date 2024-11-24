@@ -41,6 +41,7 @@ const SidebarAdmin = ({ userName, userEmail }) => {
       <div className='sidebarbuttonnn' onClick={toggleSidebar}>
         <div className={`icon ${isMenuIcon ? 'menu' : 'close'}`} onClick={toggleSidebar}></div>
       </div>
+      <h1 className='maintitle'>School Event Manager</h1>
       {isActive && ( 
         <nav className={`sidebar active`} ref={sidebarRef}>
           <div className='sbt'>

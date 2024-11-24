@@ -436,6 +436,12 @@
     width: 1.5%;
     cursor: pointer;
   }
+  .maintitle{
+    font-size: 25px;
+    text-align: center; 
+    white-space: nowrap; 
+    margin: 0 auto;
+  }
   @media screen and (max-width: 768px) {
     .sidebar-container{
       height: 50%;
@@ -476,8 +482,17 @@
       top: 340px;
     }
     .iconbgadmin{
-      top: 60px;
-      left: 50px;
+      top: 50px;
+      left: 70px;
+    }
+    .divider3admin{
+      top: 530px;
+    }
+    .logoutadmin{
+      top: 550px;
+    }
+    .visitadmin{
+      top: 610px;
     }
     
 }

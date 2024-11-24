@@ -102,7 +102,6 @@ const Dashboard = () => {
 
   return (
     <div className="container-dashboard">
-
       <h1 className="titledashboard">Dashboard</h1>
       <div className="dashboard-container">
         {loading ? (
