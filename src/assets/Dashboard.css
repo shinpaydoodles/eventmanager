@@ -1,7 +1,7 @@
 
 
 .container-dashboard {
-  background-color: #f4f4f4;
+  background-color: rgba(128, 0, 0, 0.5);
   min-height: 500px;
   z-index: 100;
   position: relative;
@@ -12,8 +12,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-margin-top: 150%
-
+  margin-top: 150%
 }
 
 .titledashboard {
@@ -21,7 +20,7 @@ margin-top: 150%
   margin-bottom: 20px;
   font-size: 30px;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 
 .dashboard-container {
@@ -90,16 +89,27 @@ margin-top: 150%
   .element-large {
     width: 100%;
   }
+  #totalevents{
+    position: relative;
+    top: -20px;
+    left: -15px;
+  }
+  #holidays{
+    position: relative;
+    top: -50px;
+    left: -15px;
+  }
 }
   @media (max-width: 768px){
     .container-dashboard{
-      top: 300px;
-      left: -5px;
+      top: 100px;
+      left: 10px;
     }
     .titledashboard{
       font-size: 25px;
       height: 60px;
       display: flex;
+      margin-bottom: 0px;
       justify-content: center;
       align-items: center ;
     }
