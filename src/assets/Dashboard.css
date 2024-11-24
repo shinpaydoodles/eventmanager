@@ -89,6 +89,10 @@
   .element-large {
     width: 100%;
   }
+  #totalusers{
+    flex: auto;
+    height: 100px;
+  }
   #totalevents{
     position: relative;
     top: -20px;

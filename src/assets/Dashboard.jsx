@@ -109,7 +109,7 @@ const Dashboard = () => {
         ) : (
           <>
             <div className="dashboard-row">
-              <div className="elementss element-small">
+              <div className="elementss element-small" id='totalusers'>
                 <h2>Total Users</h2>
                 <p className='number'>{stats.totalUsers}</p>
               </div>
