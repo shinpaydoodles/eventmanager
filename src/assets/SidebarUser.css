@@ -123,7 +123,6 @@
 .icon.menu{
     color: #ffffff;
     height: 3px;
-    left: 2.6954177897574123vh;
 }
 
 
@@ -452,4 +451,44 @@
     width: 45px;
     height: 45px;
     margin-right: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    .homeuser{
+      height: 50px;
+    }
+    .monthliuser{
+      top: 170px;
+      height: 50px;
+    }
+    .weekliuser{
+      top: 230px;
+      height: 50px;
+    }
+    .divideruser{
+      top: 285px;
+    }
+    .eventsuser{
+      top: 295px;
+      height: 40px;
+    }
+    .holidaysuser{
+      top: 345px;
+      height: 40px;
+    }
+    .divider2user{
+      top: 390px;
+    }
+    .iconbg{
+      top: -20px;
+      left: 40px;
+      position: relative;
+    }
+    .logoutuser{
+      top: 575px;
+      height: 40px;
+    }
+    .visituser{
+      top: 620px;
+      height: 40px;
+    }
   }

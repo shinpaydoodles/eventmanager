@@ -240,7 +240,7 @@ form.sign-up-form {
     border-radius: 10px;
     position: fixed;
     top: 50%; /* Initial center position vertically */
-    left: 50%; /* Initial center position horizontally */
+    left: 770px; /* Initial center position horizontally */
     transform: translate(-50%, -150%); /* Start off-screen by translating vertically */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     z-index: 1000;
@@ -409,6 +409,6 @@ form.sign-up-form {
     }
     .modallogin{
         width: 80%;
-        left: 47%;
+        left: 210px;
     }
 }

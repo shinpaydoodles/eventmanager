@@ -52,7 +52,7 @@ body::after {
 @media (max-width: 768px) {
   .events-container {
     width: 90%; 
-    margin-left: -25px; 
+    margin-left: -20px; 
     margin-top: 5%; 
     padding: 15px; 
     position: absolute;

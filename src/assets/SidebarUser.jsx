@@ -67,10 +67,10 @@ const SidebarUser = ({ changeView }) => {
             </li></Link>
             <li className='divideruser'></li>
             <li className='eventsuser' id='filter-hover'>
-              <span className='eventyellow'></span>  Events
+              <span className='eventyellow'></span>  Holidays
             </li>
             <li className='holidaysuser' id='filter-hover'>
-              <span className='holidayred'></span>  Holidays
+              <span className='holidayred'></span>  Events
             </li>
             <li className='divider2user'></li>
             <div className='iconbg'>  

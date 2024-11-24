@@ -23,7 +23,7 @@
   border-radius: 5px;
   width: 350px;
   box-shadow: 0px 2px 4px rgba(100, 100, 100, 0.5);
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* Modal Header */
@@ -61,7 +61,7 @@
 .cancel:hover{
   transform: rotate(90deg);
 }
-.cancel-delete, .close-save, .close-validation, .close-delete, .close-invalid{
+ .close-save, .close-validation, .close-delete, .close-invalid{
   position: absolute;
   top: 38%;
   right: 41%;
@@ -73,7 +73,7 @@
   transition: transform 0.2s ease-in-out;
   z-index: 100;
 }
-.cancel-delete:hover, .close-save:hover, .close-validation:hover, .close-delete:hover, .close-invalid:hover {
+ .close-save:hover, .close-validation:hover, .close-delete:hover, .close-invalid:hover {
   transform: rotate(90deg);
 }
 
@@ -82,7 +82,6 @@
 .confirm-delete {
   background-color: #f44336;
   color: white;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
@@ -90,10 +89,25 @@
   display: block;
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .confirm-delete:hover {
   background-color: #d32f2f;
+}
+.cancel-delete{
+  background-color: #f44336;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  left: 200px;
+  top: -35px;
 }
 
 /* Buttons */
@@ -315,8 +329,8 @@
 /* Mobile styles */
 @media (max-width: 768px) {
   .modal-content {
-    width: 90%; /* Adjust modal width for smaller screens */
-    padding: 20px; /* Reduce padding */
+    width: 90%; 
+    padding: 20px;  
   }
 
   .next-buttonadmin, .back-buttonadmin {
@@ -354,7 +368,7 @@
   #calendar-title {
     font-size: 10px; /* Adjust calendar title for mobile */
     top: -80px;
-    left: 20%;
+    left: 15vh;
   }
 
   .full-calendar-containeradmin {
@@ -402,8 +416,12 @@
 
 /* Small mobile adjustments for screens under 480px */
 @media (max-width: 480px) {
+  .modal{
+    align-items: normal;
+
+  }
   .modal-content {
-    padding: 15px; /* Further reduce padding */
+    padding: 15px; 
   }
 
   .headngmodal {
@@ -416,14 +434,19 @@
   }
 
   .cancel {
-    font-size: 13px; /* Adjust cancel button font size */
+    font-size: 40px; 
+    top: 10px;
+    right: 60px;
   }
-
+   .close-save, .close-validation, .close-delete, .close-invalid{
+    top: 350px;
+    right: 60px;
+  }
   #calendar-title {
     font-size: 25px; 
     position: absolute;
-    top: -80px;
-    left: 170px;
+    top: -70px;
+    left: 13vh;
     white-space: nowrap;
   }
   .calendar-controls{
