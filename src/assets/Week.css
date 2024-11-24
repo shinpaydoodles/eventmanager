@@ -239,20 +239,20 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
         width: 40px;
       }
       .next-buttonweek{
-        left: 330px;
+        left: 370px;
         height: 40px;
         width: 40px;
       }
       .full-calendar-containeruserweek{
         height: 310px;
         top: 150px;
-        left: 26px;
+        left: 5px;
       }
       #calendar-titleuser{
         font-size: 25px; 
         position: absolute;
         top: -60px;
-        left: 10vh;
+        left: 13vh;
         white-space: nowrap;
       }
     }

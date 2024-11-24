@@ -183,21 +183,22 @@
       width: 40px;
     }
     .next-buttonuser{
-      left: 330px;
+      left: 370px;
       height: 40px;
       width: 40px;
     }
     .full-calendar-containeruser{
       height: 310px;
-      width: 100%;
+      width: 420px;
       top: 150px;
+      left: 5px;
     }
     
     #calendar-titleusermonth{
       font-size: 25px; 
       position: absolute;
       top: -70px;
-      left: 12vh;
+      left: 15vh;
       white-space: nowrap;
     }
     .userbutton{
