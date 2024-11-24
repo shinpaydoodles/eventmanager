@@ -10,33 +10,32 @@ const Calendaruser = () => {
   const [events, setEvents] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [currentMonthYear, setCurrentMonthYear] = useState(""); // To track the current month and year
   const calendarRef = useRef(null);
 
   axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
-  
 
   const handleEventClick = (info) => {
     const event = info.event;
   
-    
     const formatTime = (date) => (date ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'N/A');
   
     setSelectedEvent({
       title: event.title,
       where: event.extendedProps.where,
-      start: formatTime(event.start), // Only time
-      end: formatTime(event.end),     // Only time
+      start: formatTime(event.start), 
+      end: formatTime(event.end),     
       attire: event.extendedProps.attire,
       description: event.extendedProps.description,
     });
     setShowModal(true);
   };
 
-
   const closeModal = () => {
     setShowModal(false);
     setSelectedEvent(null);
   };
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -51,13 +50,19 @@ const Calendaruser = () => {
       } 
     };
     fetchEvents(); 
-  }, []); 
+  }, []);
+
+  const updateMonthYear = (arg) => {
+    const monthName = arg.view.currentStart.toLocaleString('default', { month: 'long' });
+    const year = arg.view.currentStart.getFullYear();
+    setCurrentMonthYear(`${monthName} ${year}`);
+  };
 
   return (
     <div className='full-calendar-containeruser'>
       <div className='calendar-controls'>
         <button onClick={() => calendarRef.current.getApi().prev()} className="back-buttonuser" id='prevbutton'></button>
-        <span id='calendar-titleusermonth'>{new Date().toLocaleString('default', { month: 'long' })} {new Date().getFullYear()}</span>
+        <span id='calendar-titleusermonth'>{currentMonthYear}</span>
         <button onClick={() => calendarRef.current.getApi().next()} className="next-buttonuser" id='nextbutton'></button>
       </div>
 
@@ -70,6 +75,7 @@ const Calendaruser = () => {
         eventClick={handleEventClick}
         headerToolbar={false}
         dayHeaderContent={(args) => args.date.toLocaleDateString('en-US', { weekday: 'long' })}
+        datesSet={updateMonthYear} // Update month and year when calendar view changes
       />
 
       {showModal && selectedEvent && (
