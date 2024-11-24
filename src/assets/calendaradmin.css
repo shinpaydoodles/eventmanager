@@ -356,8 +356,8 @@
 
   .full-calendar-containeradmin {
     width: 100%; /* Full width for calendar container */
-    top: 100px;
-    height: auto; /* Allow container to adjust based on content */
+    height: auto;
+     /* Allow container to adjust based on content */
   }
 
   /* Adjust day cells and events for mobile view */
@@ -417,14 +417,33 @@
   }
 
   #calendar-title {
-    font-size: 30px; /* Further reduce title font size */
+    font-size: 25px; 
+    position: absolute;
+    top: -80px;
+    left: 170px;
+  }
+  .calendar-controls{
+    position: absolute;
+    top: -50px;
+  }
+  .back-buttonadmin{
+    left: 10px;
+  }
+  .next-buttonadmin{
+    left: 290px;
   }
   .fc{
     width: 380px;
+    height: 314px;
+    top: 150px;
+    left: 25px;
   }
   .full-calendar-containeradmin{
     width: 380px;
     left: -5px;
+    height: 300px;
+    top: 150px;
+    left: 25px;
   }
 
   .fc-daygrid-event {
