@@ -246,6 +246,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
       .full-calendar-containeruserweek{
         height: 310px;
         top: 150px;
+        left: 10px;
       }
       #calendar-titleuser{
         font-size: 25px; 
