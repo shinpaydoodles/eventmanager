@@ -451,6 +451,9 @@
     .sidebar.active{
       width: 375px;
     }
+    .sbt{
+      height: 10vh;
+    }
     .icon.menu{
       left: 20%;
       top: 19%;
