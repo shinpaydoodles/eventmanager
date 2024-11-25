@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SidebarAdmin from './SidebarAdmin';
 import './Dashboard.css'; 
 
-// Define users and admins at the top of the file
+
 const users = [
   { 
     email: 'luisbenico', 
@@ -60,11 +59,11 @@ const Dashboard = () => {
   });
   const [loading, setLoading] = useState(true);
 
-  const currentUser = admins[1]; // Set the current logged-in user (example)
+  const currentUser = admins[1]; 
 
   const countUsers = () => {
-    const totalUsers = users.length + admins.length; // Total users including admins
-    const registeredUsers = users.length; // Registered users are the non-admin users
+    const totalUsers = users.length + admins.length; 
+    const registeredUsers = users.length; 
     return { totalUsers, registeredUsers };
   };
 
@@ -75,29 +74,29 @@ const Dashboard = () => {
         throw new Error("Failed to fetch events");
       }
       const data = await response.json();
-      console.log(data);  // Log data to ensure it contains events and holidays
+      console.log(data);  
 
-      // Counting events based on color
+      
       const totalEvents = data.filter(event => event.color === '#800000').length;
       const totalHolidays = data.filter(event => event.color === 'goldenrod').length;
 
-      // Update stats with user and event data
-      const { totalUsers, registeredUsers } = countUsers(); // Get user count
+      
+      const { totalUsers, registeredUsers } = countUsers(); 
       setStats({
-        totalUsers: totalUsers,  // Updated total users
-        registeredUsers: registeredUsers,  // Updated registered users
+        totalUsers: totalUsers,  
+        registeredUsers: registeredUsers,  
         totalEvents: totalEvents,
         totalHolidays: totalHolidays
       });
     } catch (error) {
       console.error("Error fetching events:", error);
     } finally {
-      setLoading(false);  // Ensure loading state is set to false after the fetch
+      setLoading(false);  
     }
   };
 
   useEffect(() => {
-    fetchEvents();  // Fetch events on component mount
+    fetchEvents();  
   }, []);
 
   return (

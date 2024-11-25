@@ -41,7 +41,7 @@ const CalendarAdmin = () => {
         setDeleteModal(false);
         setSelectedEvent(null);
   
-        // Show success modal
+        
         setDeleteSuccessModal(true);
       } catch (error) {
         console.error('Error deleting event:', error);
@@ -53,15 +53,13 @@ const CalendarAdmin = () => {
   const handleEventResize = async (resizeInfo) => {
     const { event } = resizeInfo;
     const updatedEvent = {
-      start: event.start.toISOString(), // Get the updated start time in ISO format
-      end: event.end ? event.end.toISOString() : null, // Get the updated end time, null if not available
+      start: event.start.toISOString(), 
+      end: event.end ? event.end.toISOString() : null, 
     };
   
     try {
-      // Update the event in the backend
       await axios.put(`/api/events/${event.id}`, updatedEvent);
   
-      // Update the events in the state to reflect the resized event
       setEvents((prevEvents) =>
         prevEvents.map((evt) =>
           evt._id === event.id ? { ...evt, ...updatedEvent } : evt
@@ -79,11 +77,9 @@ const CalendarAdmin = () => {
     };
   
     try {
-      setLoading(true); // Set loading state to true
-      // Update event in backend
+      setLoading(true); 
       await axios.put(`/api/events/${event.id}`, updatedEvent);
   
-      // Update local state with the new event data
       setEvents((prevEvents) =>
         prevEvents.map((evt) =>
           evt._id === event.id ? { ...evt, ...updatedEvent } : evt
@@ -92,7 +88,7 @@ const CalendarAdmin = () => {
     } catch (error) {
       console.error("Error updating event after drag and drop:", error);
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false); 
     }
   };
 
@@ -106,14 +102,12 @@ const CalendarAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Validate required fields
     if (!newEvent.title || !newEvent.start || !newEvent.end) {
       setValidationMessage("Please fill in all the required fields.");
       setValidationModal(true);
       return;
     }
   
-    // Validate title (alphanumeric and spaces only)
     const titlePattern = /^[A-Za-z0-9\s]+$/;
     if (!titlePattern.test(newEvent.title)) {
       setValidationMessage("Title can only contain letters, numbers, and spaces.");
@@ -121,7 +115,6 @@ const CalendarAdmin = () => {
       return;
     }
   
-    // Validate attire (alphanumeric and spaces only)
     const attirePattern = /^[A-Za-z0-9\s]+$/;
     if (newEvent.attire && !attirePattern.test(newEvent.attire)) {
       setValidationMessage("Attire can only contain letters, numbers, and spaces.");
@@ -158,7 +151,6 @@ const CalendarAdmin = () => {
           prevEvents.map((evt) => (evt._id === selectedEvent._id ? { ...evt, ...eventToSave } : evt))
         );
       } else {
-        // Add new event
         const response = await axios.post('/api/events', eventToSave);
         setEvents((prev) => [...prev, response.data]);
       }

@@ -10,7 +10,7 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // For toggling password visibility
+  const [showPassword, setShowPassword] = useState(false); 
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -21,7 +21,6 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Check if user exists in either users or admins
     const user = users.find(
       (user) => user.email === formData.email && user.password === formData.password
     );
@@ -48,7 +47,7 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // Toggle password visibility
+    setShowPassword(!showPassword); 
   };
 
   const closeModal = () => {

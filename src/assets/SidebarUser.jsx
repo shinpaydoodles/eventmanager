@@ -10,21 +10,20 @@ const SidebarUser = ({ changeView }) => {
   const [userEmail, setUserEmail] = useState('');
   const navigate = useNavigate();
 
-  const loggedInEmail = localStorage.getItem('loggedInEmail'); // Get logged-in email from localStorage
+  const loggedInEmail = localStorage.getItem('loggedInEmail'); 
 
   useEffect(() => {
-    // Check if the logged-in user is from the users or admins list
     const currentUser = users.find(user => user.email === loggedInEmail);
     const currentAdmin = admins.find(admin => admin.email === loggedInEmail);
 
     if (currentUser) {
-      setUserName(currentUser.userName); // Set username from users list
-      setUserEmail(currentUser.userEmail); // Set user email from users list
+      setUserName(currentUser.userName); 
+      setUserEmail(currentUser.userEmail); 
     } else if (currentAdmin) {
-      setUserName(currentAdmin.userName); // Set username from admins list
-      setUserEmail(currentAdmin.userEmail); // Set admin email from admins list
+      setUserName(currentAdmin.userName); 
+      setUserEmail(currentAdmin.userEmail); 
     }
-  }, [loggedInEmail]); // Dependency on loggedInEmail to run the effect when it changes
+  }, [loggedInEmail]); 
 
   const toggleSidebar = () => {
     setIsActive(!isActive);

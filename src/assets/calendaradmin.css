@@ -302,7 +302,7 @@
     height: 950px;
     width: 85%;
     top: 120px;
-    left: 7.5%;
+    left: 5%;
     background-color: rgb(222, 222, 248); 
     /* eto po yung kulay nung today */
   }
@@ -372,7 +372,7 @@
 
   .full-calendar-containeradmin {
     width: 100%; /* Full width for calendar container */
-    height: auto;
+    height: auto; 
      /* Allow container to adjust based on content */
   }
 

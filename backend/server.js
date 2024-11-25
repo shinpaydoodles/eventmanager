@@ -50,7 +50,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = (event, timeFrame) => {
   const mailOptions = {
     from: process.env.GMAIL_USER,
-    to: 'hanyzel.cenon@gmail.com', 
+    to: 'hanyzelcenon@gmail.com', 
     subject: `Reminder: ${event.title || 'Your Event'} is starting soon!`,
     text: `The event "${event.title || 'Your Event'}" is happening in ${timeFrame}.\n\nDetails:\n${event.description || 'No description provided'}\nLocation: ${event.where || 'No location provided'}\nStart: ${event.start ? new Date(event.start).toLocaleString() : 'No start time provided'}`,
   };

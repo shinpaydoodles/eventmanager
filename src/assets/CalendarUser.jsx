@@ -10,7 +10,7 @@ const Calendaruser = () => {
   const [events, setEvents] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [currentMonthYear, setCurrentMonthYear] = useState(""); // To track the current month and year
+  const [currentMonthYear, setCurrentMonthYear] = useState(""); 
   const calendarRef = useRef(null);
 
   axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -75,7 +75,7 @@ const Calendaruser = () => {
         eventClick={handleEventClick}
         headerToolbar={false}
         dayHeaderContent={(args) => args.date.toLocaleDateString('en-US', { weekday: 'long' })}
-        datesSet={updateMonthYear} // Update month and year when calendar view changes
+        datesSet={updateMonthYear} 
       />
 
       {showModal && selectedEvent && (

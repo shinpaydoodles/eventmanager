@@ -7,7 +7,7 @@ const SidebarAdmin = ({ userName, userEmail }) => {
   const [isMenuIcon, setIsMenuIcon] = useState(true); 
   const navigate = useNavigate();
   
-  // Create a ref for the sidebar container
+
   const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -16,21 +16,19 @@ const SidebarAdmin = ({ userName, userEmail }) => {
   };
 
   const handleLogout = () => {
-    navigate("/"); // Redirect to login page
+    navigate("/"); 
   };
 
-  // Add event listener to close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setIsActive(false); // Close sidebar if click is outside
-        setIsMenuIcon(true); // Reset menu icon to 'menu' state
+        setIsActive(false); 
+        setIsMenuIcon(true); 
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
 
-    // Cleanup event listener on component unmount
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
