@@ -36,7 +36,21 @@ const SidebarUser = ({ changeView }) => {
     navigate("/"); // Navigate to login page or another page
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsActive(false); // Close sidebar if click is outside
+        setIsMenuIcon(true); // Reset menu icon to 'menu' state
+      }
+    };
 
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className='sidebar-container'onClick={toggleSidebar}>
