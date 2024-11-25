@@ -129,7 +129,6 @@ const CalendarAdmin = () => {
       return;
     }
   
-    // Validate start and end times
     const startTime = new Date(`${selectedDate}T${newEvent.start}`);
     const endTime = new Date(`${selectedDate}T${newEvent.end}`);
     if (startTime >= endTime) {
@@ -154,7 +153,6 @@ const CalendarAdmin = () => {
   
     try {
       if (selectedEvent) {
-        // Edit existing event
         const response = await axios.put(`/api/events/${selectedEvent._id}`, eventToSave);
         setEvents((prevEvents) =>
           prevEvents.map((evt) => (evt._id === selectedEvent._id ? { ...evt, ...eventToSave } : evt))

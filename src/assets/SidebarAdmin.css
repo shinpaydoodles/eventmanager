@@ -196,7 +196,7 @@
     background-color: #800000;
     height: 94px;
     position: fixed;
-    width: 378px;
+    width: 260px;
     top: 0;
     left: 0;
     z-index: 999;
@@ -453,6 +453,7 @@
     }
     .sbt{
       height: 10vh;
+      width: 328px;
     }
     .icon.menu{
       left: 20%;
