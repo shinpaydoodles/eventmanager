@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import { Link, useNavigate } from 'react-router-dom';
-import { users, admins } from './User';
+import { users, admins } from '../../backend/routes/users';
 import './SidebarUser.css'; 
 
 const SidebarUser = ({ changeView }) => { 
