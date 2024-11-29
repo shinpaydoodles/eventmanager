@@ -208,7 +208,25 @@ const CalendarAdmin = () => {
     const title = currentView.title; 
     document.getElementById('calendar-title').innerText = title; 
   };
+  
+  useEffect(() => {
+    // Fetch events (including holidays) from your backend
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get('/api/holidays');  // Fetch holidays from the API
+        const holidayEvents = response.data.map((holiday) => ({
+          title: holiday.summary,
+          start: holiday.start.dateTime || holiday.start.date,  // Use date or dateTime
+          color: 'goldenrod',  // Color for holidays
+        }));
+        setEvents((prevEvents) => [...prevEvents, ...holidayEvents]);  // Append holidays
+      } catch (error) {
+        console.error("Error fetching holidays:", error);
+      }
+    };
 
+    fetchEvents();  // Call the function to load holidays
+  }, []);
   useEffect(() => {
     const fetchEvents = async () => {
       try {

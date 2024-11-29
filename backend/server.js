@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
 import cron from 'node-cron';
+import fetchHolidays from './googleCalendar.js';
 
 dotenv.config(); 
 
@@ -162,15 +163,28 @@ app.delete('/api/events/:id', async (req, res) => {
 });
 
 // Route to fetch all users
-app.get('/api/users', async (req, res) => {
+app.get('/users', async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await users.find();
     res.json(users);
   } catch (err) {
     console.error('Error fetching users:', err);
     res.status(500).json({ error: 'Failed to fetch users' });
   }
 });
+// google calendar route
+
+app.get('/api/holidays', async (req, res) => {
+  try {
+    const holidays = await fetchHolidays();
+    console.log('Fetched holidays:', holidays);
+    res.json(holidays);
+  } catch (error) {
+    console.error('Error fetching holidays:', error);
+    res.status(500).json({ error: 'Failed to fetch holidays' });
+  }
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

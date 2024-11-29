@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eventmanager-443115",
+  "private_key_id": "6f8043369eb441f9e10f32ecc623c3aec5b62a60",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCXnreH+qXu4P/v\nLr7wabksXTW8/y80U97uRez4tizaVTN6ZMK99d/vq3UIDqBovFWFkckJH/jbLL6C\nqDXehJLuJp3cTq/lGGK1kFWbrga8ON0FBvghZAXaMRKSJKO6XK5BjAhnJGPndEmk\n5rKe1myZnXB50S4vcNkdh5gmoyeQ/6erHZk0U9gyoSYvghTTGjQsYWRu0PUIQvC6\n5u8BlBiSPEfcb5z7m6ec1OGQp0uuW+sR/5iaZI1e2z+o5Y+dr4uUN3VwpfdtUnIX\neoLr5VQj+m1wkTWXPThWPN1gnT8qQO/ZiogCTypBVqVia/GCpFwGeYx+HGmv8XlI\nK/C1gluvAgMBAAECggEAFlAEqU2xEqTo9R13evDMD+PNrzkMjNJU6dK/i2Bf3GeS\nck4WvJbM9DvStrNUVuV0Xno0UBP07ug4RwkTGGKBLuve6ldoGjpK+HY7qvPiyNtD\nZ2R9qohKNjBnj7s1nwzZlgrSB7+6tgqOdeZ/XdGnXLnnHf4zIkckpGxab0EuZu+G\niH6SA3hk62Xdv61cfGMdlcZy5Uaj7edwDdZyJbe2SedjYLDyXGydknzD0qt3Cfun\nMpGExeIiiV1SC+GLUk1jPfv0ECmOOS8gTFbF6H4Xq+K0G2Tb1y4d/p7TX7jiVRO7\n6Wn6dbbOlYr4Ue2qpyLNh+ARImSnOXa3kMce5nPTTQKBgQDM9kQ7rKapupbbuqE+\nycATUvCpAPo/wt9/bYKMlTGI+nVCP2CCix3dj/5XeAy4jW2FhFBqXhxNyxfEPHY1\nHPC/psu0OTxyjc1+gJMW2YPG3uFefR6wEpkWZftcPBIqNbx24iL67591e9dC0wCp\ngoS6F8x8oziG6AF6fVna1ykuOwKBgQC9YA1/L6xtjiuFArl3saLONW0oUX05XT3O\nCdauhQVus8a49BLbmc6gwkE5KpRYPjQpbR9wFFzw9HqmFkxqr3F5TO7W1UpfhRbV\n9FXuE09g3O5FMLYAo8PBMaafX+oerzXWWzK7i7fcQlSxdr9DXE+Necnf8eHx7y8M\ng/UeR+ttHQKBgDa3qA+mT/gP8CZI9LMmeTivc8AqmqRbCf+i5K9TRR4kfxloggNX\n0GlN/8CqM/sxBoQWhsFezn+WMIoa+hPD3iHMDaXXgeOzJ6EWAi6fcyasac4n6QFo\ndaYdI7XD87WBEwdJ57zGK/PZU+ZrHkoipfxoThcYHAcn+P0SaeKafkvxAoGBAIe8\nVzA4fYCxDGR0BXfTbPwcszbY4cbCHFCYILZKRhCI7wEWgIXCgqYbViChcl6lh0HC\nI2x0TAGxWk+9X9yAD/d/uxllG7/HZwzH6ueQE68769TQC0P+HYtWCTXmy6per1oL\nWBuxE4HeUVI56PFhMuwWxSms9+QvKivwUTr5FbfJAoGAYLSOLDkZ2eu5YR5ZBW7a\nx2PfOoWNNtBslpEyobNq+fuuxsvS3zNBp11vNZDGqRMF9j+Ia7IgUmAC3bvDlaG3\nYpUR3d1ENjulKrcXSa7AustkNpVmFTcLEUnVtnW6fhF7m8it6gQToc6YK9FRgoJV\nOWWRve1NfOBIR/5qLY4hx4Q=\n-----END PRIVATE KEY-----\n",
+  "client_email": "shinpaydooddles@eventmanager-443115.iam.gserviceaccount.com",
+  "client_id": "103524071487735002093",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/shinpaydooddles%40eventmanager-443115.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
