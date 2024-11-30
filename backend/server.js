@@ -176,9 +176,8 @@ app.get('/users', async (req, res) => {
 
 app.get('/api/holidays', async (req, res) => {
   try {
-    const holidays = await fetchHolidays();
-    console.log('Fetched holidays:', holidays);
-    res.json(holidays);
+    const holidays = await fetchHolidays(); // Call the Google Calendar API
+    res.json(holidays); // Return holidays as JSON response
   } catch (error) {
     console.error('Error fetching holidays:', error);
     res.status(500).json({ error: 'Failed to fetch holidays' });
