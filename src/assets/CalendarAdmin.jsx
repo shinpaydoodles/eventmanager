@@ -213,11 +213,12 @@ const CalendarAdmin = () => {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const response = await axios.get('/api/holidays'); // Ensure this URL is correct
-        setHolidays(response.data);
+        const response = await axios.get('https://eventmanager-omt8.onrender.com/api/holidays');
+        console.log('Holidays:', response.data); // Debugging step
+        return response.data;
       } catch (error) {
-        console.error('Error sa holidays', error);
-        setHolidays([]);
+        console.error('Error fetching holidays:', error);
+        return [];
       }
     };
   
