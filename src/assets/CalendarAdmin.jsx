@@ -28,6 +28,7 @@ const CalendarAdmin = () => {
   const [validationMessage, setValidationMessage] = useState('');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedType, setSelectedType] = useState('');
+  const [holidays, setHolidays] = useState([]);
   const calendarRef = useRef();
 
   axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -208,25 +209,21 @@ const CalendarAdmin = () => {
     const title = currentView.title; 
     document.getElementById('calendar-title').innerText = title; 
   };
-  
+
   useEffect(() => {
-    // Fetch events (including holidays) from your backend
-    const fetchEvents = async () => {
+    const fetchHolidays = async () => {
       try {
-        const response = await axios.get('/api/holidays');  // Fetch holidays from the API
-        const holidayEvents = response.data.map((holiday) => ({
-          title: holiday.summary,
-          start: holiday.start.dateTime || holiday.start.date,  // Use date or dateTime
-          color: 'goldenrod',  // Color for holidays
-        }));
-        setEvents((prevEvents) => [...prevEvents, ...holidayEvents]);  // Append holidays
+        const response = await axios.get('/api/holidays'); // Ensure this URL is correct
+        setHolidays(response.data);
       } catch (error) {
-        console.error("Error fetching holidays:", error);
+        console.error('Error sa holidays', error);
+        setHolidays([]);
       }
     };
-
-    fetchEvents();  // Call the function to load holidays
+  
+    fetchHolidays();
   }, []);
+  
   useEffect(() => {
     const fetchEvents = async () => {
       try {
